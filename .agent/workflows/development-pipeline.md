@@ -1,235 +1,194 @@
 ---
-description: Pipeline completo de desenvolvimento com agentes especializados
+description: Pipeline de desenvolvimento otimizado com Estratégia de Produto e Agentes Especializados (v2.0)
 ---
 
-# 🔄 Workflow: Pipeline de Desenvolvimento
+# 🔄 Workflow: Pipeline de Desenvolvimento Integrado (v2.0)
 
-Este workflow descreve como usar a equipe de agentes DevTeam AI para desenvolver um projeto do zero.
+Este workflow define o ciclo de vida completo de desenvolvimento de software utilizando a equipe DevTeam AI. Ele integra desde a concepção estratégica até a entrega e manutenção, seguindo as melhores práticas de Engenharia de Agentes 2025.
 
-## Pré-requisitos
+## 🌟 Visão Geral do Pipeline
 
-- Demanda/ideia do cliente claramente definida
-- Acesso aos arquivos de prompt dos agentes em `d:\agents\specialists\`
+1.  **Estratégia (Passo 0)**: Validação de ideia e modelo de negócio. (*Novo*)
+2.  **Análise (Passo 1)**: Definição de requisitos de negócio.
+3.  **Especificação (Passo 2)**: Tradução para requisitos técnicos.
+4.  **Arquitetura (Passo 3)**: Design do sistema e decisões técnicas.
+5.  **Implementação (Passo 4)**: Codificação assistida por IA.
+6.  **Qualidade (Passo 5)**: Testes automatizados e QA.
+7.  **Correção (Passo 6)**: Ciclos de debug e fix.
+8.  **Otimização (Passo 7)**: Performance e refatoração.
+9.  **Integração (Passo 8)**: DevOps e CI/CD.
+10. **Documentação (Passo 9)**: Manuais e outputs finais.
 
-## Pipeline de Execução
+---
 
-### Passo 1: Análise de Negócios (ASK)
+## 🚦 Pré-requisitos
+- Acesso à suite de agentes em `d:\agents\specialists\`
+- Ferramentas de terminal configuradas (Node, Git, Docker)
+
+---
+
+## 🚀 Execução Detalhada
+
+### 💡 Passo 0: Estratégia de Produto (PRODUCT STRATEGIST)
+*Onde as ideias são validadas antes de gastar recursos.*
+
+**Agente:** `specialists/00-product-strategist.md`
+**Input:** Ideia bruta, insight de mercado ou problema.
+**Output:** `strategic_blueprint.md` (Lean Canvas + Validação).
+
+**Fluxo:**
+1.  **Ideação**: Usuário apresenta a visão inicial.
+2.  **Stress Test**: Agente desafia premissas e identifica riscos.
+3.  **Modelagem**: Criação do Lean Canvas e Proposta de Valor Única (UVP).
+4.  **Decisão Go/No-Go**: Validar se há "Product-Market Fit" teórico.
+
+> 🛑 **Gate de Decisão**: Se a ideia não for viável, pivote AQUI. Não avance para o Passo 1.
+
+---
+
+### 📋 Passo 1: Análise de Negócios (ASK)
+*Traduzindo visão em requisitos claros.*
 
 **Agente:** `specialists/01-ask.md`
-
-**Input:** Descrição inicial do cliente
+**Input:** `strategic_blueprint.md` (do Passo 0) + Entrevista com Cliente.
 **Output:** `business_requirements.yaml`
 
-**Ações:**
-1. Carregue o prompt do agente Ask
-2. Forneça a demanda inicial do cliente
-3. Responda às perguntas do agente (mínimo 5 trocas)
-4. Valide o resumo de requisitos de negócio
-5. Salve o artefato `business_requirements.yaml`
+**Fluxo:**
+1.  Absorver o contexto estratégico do Blueprint.
+2.  Conduzir entrevista detalhada para extrair requisitos funcionais.
+3.  Priorizar features (MoSCoW) alinhadas ao valor de negócio.
+4.  Gerar documento de requisitos de negócio.
 
 ---
 
-### Passo 2: Especificação de Requisitos (SPECIFICATION WRITER)
+### 📝 Passo 2: Especificação Técnica (SPECIFICATION WRITER)
+*A ponte entre o negócio e a engenharia.*
 
 **Agente:** `specialists/02-specification-writer.md`
-
 **Input:** `business_requirements.yaml`
-**Output:** `user_stories.yaml`, `non_functional_requirements.yaml`
+**Output:** `user_stories.yaml`, `non_functional_requirements.yaml` (NFRs).
 
-**Ações:**
-1. Carregue o prompt do agente Specification Writer
-2. Forneça os requisitos de negócio do passo anterior
-3. Revise as user stories geradas
-4. Valide os critérios de aceite
-5. Salve os artefatos de especificação
+**Fluxo:**
+1.  Converter requisitos de negócio em User Stories técnicas.
+2.  Definir critérios de aceite (Gherkin/BDD).
+3.  Estipular Requisitos Não-Funcionais (Performance, Segurança).
 
 ---
 
-### Passo 3: Arquitetura (ARCHITECT)
+### 🏗️ Passo 3: Arquitetura de Sistema (ARCHITECT)
+*Fundação sólida para escala.*
 
 **Agente:** `specialists/03-architect.md`
+**Input:** User Stories + NFRs.
+**Output:** `system_design.yaml`, `api_contracts.yaml`, `data_model.yaml`, `adrs/`
 
-**Input:** `user_stories.yaml`, `non_functional_requirements.yaml`
-**Output:** `adrs/`, `system_design.yaml`, `api_contracts.yaml`, `data_model.yaml`
-
-**Ações:**
-1. Carregue o prompt do agente Architect
-2. Forneça as especificações do passo anterior
-3. Revise as decisões arquiteturais (ADRs)
-4. Valide o stack tecnológico escolhido
-5. Confirme contratos de API e modelo de dados
-6. Salve os artefatos de arquitetura
+**Fluxo:**
+1.  Selecionar stack tecnológica adequada aos NFRs.
+2.  Desenhar diagrama de componentes e fluxos de dados.
+3.  Definir contratos de API (OpenAPI/Swagger).
+4.  Registrar Decisões Arquiteturais (ADRs).
 
 ---
 
-### Passo 4: Implementação (AUTO-CODER)
+### 💻 Passo 4: Implementação (AUTO-CODER)
+*Construção do software.*
 
 **Agente:** `specialists/04-auto-coder.md`
+**Input:** Specs de Arquitetura e Especificação.
+**Output:** Código Fonte (`src/`), `implementation_notes.md`.
 
-**Input:** Todos artefatos do Architect + User Stories
-**Output:** Código fonte (`src/`), `implementation_notes.md`
-
-**Ações:**
-1. Carregue o prompt do agente Auto-Coder
-2. Forneça arquitetura e especificações
-3. Monitore a implementação por módulos
-4. Revise código gerado para cada componente
-5. Valide aderência aos contratos de API
-6. Salve código fonte e notas de implementação
+**Fluxo:**
+1.  Implementar scaffolding do projeto.
+2.  Codificar features baseadas nas User Stories.
+3.  Seguir estritamente os contratos de API e modelos de dados.
+4.  Manter código limpo e comentado.
 
 ---
 
-### Passo 5: Testes (TESTER)
+### 🧪 Passo 5: Testes e QA (TESTER)
+*Garantia de qualidade.*
 
 **Agente:** `specialists/05-tester.md`
+**Input:** Código Fonte + Critérios de Aceite.
+**Output:** `tests/` (Unit, E2E), `test_report.yaml`, `bug_report.yaml`.
 
-**Input:** Código fonte + User Stories + Acceptance Criteria
-**Output:** `tests/`, `test_report.yaml`, `bug_report.yaml`
-
-**Ações:**
-1. Carregue o prompt do agente Tester
-2. Forneça código e critérios de aceite
-3. Aguarde criação da suíte de testes
-4. Revise relatório de execução
-5. Identifique bugs encontrados
-6. Se houver bugs, prossiga para Passo 6
-7. Se não houver bugs, pule para Passo 7
+**Fluxo:**
+1.  Criar suíte de testes automatizados.
+2.  Executar testes e registrar falhas.
+3.  Validar critérios de aceite das User Stories.
 
 ---
 
-### Passo 6: Correção de Bugs (FAST-FIX CYCLE)
+### 🐛 Passo 6: Debugging & Fix (DEBUGGER / AUTO-CODER)
+*Ciclo de correção.*
 
-**Agentes:** `specialists/04-auto-coder.md` (Fast Fix) OU `specialists/06-debugger.md` (Complex Fix)
-
-**Input:** `bug_report.yaml` e falhas de teste.
-
-**Lógica de Decisão:**
-1. **Erro Simples** (Sintaxe, Typos, Regras triviais):
-    - O **Tester** rejeita diretamente para o **Auto-Coder** (`status: REJECTED_FAST`).
-    - O **Auto-Coder** corrige e re-submete sem passar pelo Debugger.
-    - *Economia de tempo e tokens.*
-
-2. **Erro Complexo** (Lógica de Negócio, Concorrência, Vazamento de Memória):
-    - O **Tester** rejeita com `status: REJECTED_COMPLEX`.
-    - Ativa o **Debugger** para análise de causa raiz profunda.
-    - **Debugger** gera `fix_plan.yaml` para o Auto-Coder.
-
-**Ações (Fast-Fix):**
-1. Auto-Coder recebe relatório de falha.
-2. Aplica correção imediata (`replace_file_content`).
-3. Roda teste local (`npm test`).
-4. Passou? Submete novamente ao Tester.
-
-**Ações (Complex-Fix):**
-1. Debugger analisa logs e stack trace.
-2. Isola o problema e propõe solução arquitetural.
-3. Auto-Coder implementa a solução robusta.
-4. Retorna ao Tester.
+**Entrada:** `bug_report.yaml`
+**Fluxo:**
+- **Fast Fix**: Erros simples -> Auto-Coder corrige direto.
+- **Deep Fix**: Erros lógicos/complexos -> Debugger analisa e propõe plano -> Auto-Coder executa.
 
 ---
 
-### Passo 7: Otimização (OPTIMIZER)
+### 🚀 Passo 7: Otimização (OPTIMIZER)
+*Polimento e performance.*
 
 **Agente:** `specialists/07-optimizer.md`
+**Input:** Código estável.
+**Output:** `optimization_report.yaml`, Refatorações.
 
-**Input:** Código fonte + NFRs de performance
-**Output:** Código otimizado, `optimization_report.yaml`
-
-**Ações:**
-1. Carregue o prompt do agente Optimizer
-2. Forneça código e requisitos de performance
-3. Aguarde análise de baseline
-4. Revise otimizações propostas
-5. Valide benchmarks antes/depois
-6. Confirme compliance com NFRs
-7. Salve código otimizado
+**Fluxo:**
+1.  Análise estática e de complexidade ciclomática.
+2.  Otimização de algoritmos e queries.
+3.  Melhoria de legibilidade e manutenibilidade.
 
 ---
 
-### Passo 8: Integração (SYSTEM INTEGRATOR)
+### 🚢 Passo 8: Integração e Deploy (SYSTEM INTEGRATOR)
+*Pronto para produção.*
 
 **Agente:** `specialists/08-system-integrator.md`
-
-**Input:** Código final + Stack tecnológico
-**Output:** CI/CD config, Dockerfile, docker-compose, scripts
-
-**Ações:**
-1. Carregue o prompt do agente System Integrator
-2. Forneça código e configurações de stack
-3. Revise pipeline CI/CD gerado
-4. Valide Dockerfiles e configs de ambiente
-5. Teste scripts de deploy localmente
-6. Salve configurações de integração
+**Input:** Código otimizado.
+**Output:** Dockerfiles, CI/CD pipelines (GitHub Actions), Scripts de deploy.
 
 ---
 
-### Passo 9: Documentação (DOCUMENTATION WRITER)
+### 📚 Passo 9: Documentação (DOCUMENTATION WRITER)
+*Legado e transferência de conhecimento.*
 
 **Agente:** `specialists/09-documentation-writer.md`
-
-**Input:** Todos os artefatos anteriores
-**Output:** `README.md`, `docs/`, API docs, User Guide
-
-**Ações:**
-1. Carregue o prompt do agente Documentation Writer
-2. Forneça todos os artefatos do projeto
-3. Revise README principal
-4. Valide documentação de API
-5. Confirme guia do usuário
-6. Salve toda documentação
-7. **Projeto completo! 🎉**
+**Input:** Todo o projeto.
+**Output:** `README.md`, Wiki, API Docs.
 
 ---
 
-## Estrutura de Artefatos Esperada
-
-Ao final do pipeline, você deve ter:
+## 📂 Estrutura de Arquivos Final
 
 ```
-projeto/
-├── src/                      # Código fonte (Passo 4)
-├── tests/                    # Testes (Passo 5)
-├── docs/
-│   ├── adr/                  # Decisões arquiteturais (Passo 3)
-│   ├── api/                  # Documentação de API (Passo 9)
-│   └── user-guide.md         # Guia do usuário (Passo 9)
-├── artifacts/
-│   ├── business_requirements.yaml    # Passo 1
-│   ├── user_stories.yaml            # Passo 2
-│   ├── non_functional_requirements.yaml  # Passo 2
-│   ├── system_design.yaml           # Passo 3
-│   ├── api_contracts.yaml           # Passo 3
-│   ├── data_model.yaml              # Passo 3
-│   ├── test_report.yaml             # Passo 5
-│   ├── bug_report.yaml              # Passo 5
-│   ├── fix_report.yaml              # Passo 6
-│   └── optimization_report.yaml     # Passo 7
-├── .github/
-│   └── workflows/            # CI/CD (Passo 8)
-├── Dockerfile                # (Passo 8)
-├── docker-compose.yml        # (Passo 8)
-├── README.md                 # (Passo 9)
-└── CHANGELOG.md              # (Passo 9)
+project-root/
+├── .agent/               # Configs e memórias dos agentes
+├── src/                  # Código fonte (Passo 4)
+├── tests/                # Testes (Passo 5)
+├── docs/                 # Documentação (Passo 9)
+│   ├── adr/              # Decisões Arquiteturais (Passo 3)
+│   ├── strategy/         # Blueprint e Lean Canvas (Passo 0)
+│   └── api/              # Specs de API
+├── artifacts/            # Saídas dos Agentes (Histórico)
+│   ├── strategic_blueprint.md    # Passo 0
+│   ├── business_requirements.yaml # Passo 1
+│   ├── user_stories.yaml         # Passo 2
+│   ├── system_design.yaml        # Passo 3
+│   └── ...
+├── .github/workflows/    # CI/CD (Passo 8)
+├── Dockerfile            # (Passo 8)
+└── README.md             # (Passo 9)
 ```
 
-## Comandos do Orquestrador
+## 🎮 Comandos do Orquestrador
 
-Para usar o Orquestrador (`orchestrator/orchestrator.md`):
-
-- `/start [demanda]` - Inicia novo projeto
-- `/status` - Mostra status do pipeline
-- `/next` - Avança para próximo agente
-- `/rollback [step]` - Retorna a passo anterior
-- `/agents` - Lista status dos agentes
-
-## Dicas
-
-1. **Não pule passos** - Cada agente depende dos artefatos do anterior
-2. **Valide antes de prosseguir** - Erros propagam pelo pipeline
-3. **Documente desvios** - Se precisar ajustar algo, documente
-4. **Itere se necessário** - Pode voltar a passos anteriores
-5. **Use o Orquestrador** - Ele ajuda a manter o controle
+- `/strategy` : Inicia o Passo 0 (Novo)
+- `/start` : Inicia o Passo 1 (Assume estratégia pronta ou pula)
+- `/next` : Avança o estado do projeto
+- `/status` : Visualiza em qual passo o projeto está
 
 ---
-
-*DevTeam AI - Pipeline de Desenvolvimento v1.0.0*
+*DevTeam AI - Pipeline v2.0 - Powered by Autonomous Agents*
