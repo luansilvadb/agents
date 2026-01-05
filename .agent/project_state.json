@@ -1,0 +1,24 @@
+{
+  "project": {
+    "id": "uninitialized",
+    "name": "New Project",
+    "status": "IDLE",
+    "start_time": null,
+    "last_update": null
+  },
+  "workflow": {
+    "current_phase": "PLANNING",
+    "current_step_id": 0,
+    "current_agent": "Orchestrator",
+    "iteration": 0,
+    "max_retries": 3
+  },
+  "history": [],
+  "artifacts": {
+    "docs": [],
+    "code": [],
+    "tests": []
+  },
+  "blockers": [],
+  "decisions_log": []
+}
