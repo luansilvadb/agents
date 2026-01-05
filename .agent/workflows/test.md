@@ -58,7 +58,9 @@ Verifique o relatório de testes:
 
 ### Passo 6: Se Houver Bugs
 
-Se o relatório indicar bugs, use `/debug` para corrigir.
+Se o relatório indicar bugs:
+- **Bugs Simples (Fast-Fix)**: Use `/reject_fast` para devolver ao Auto-Coder.
+- **Bugs Complexos**: Use `/debug` para acionar o Debugger.
 
 ### Passo 7: Se Tudo Passou
 
