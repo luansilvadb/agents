@@ -39,7 +39,7 @@ O pipeline combina fluxo linear para definição com ciclos de feedback rápidos
 
 ## ✨ Novidades da Versão 2.0
 
-1.  **Gestão de Estado Centralizada**: O arquivo `.agent/project_state.json` mantém o status real do projeto, evitando perda de contexto no chat.
+1.  **Gestão de Estado Centralizada**: O arquivo `.agent/project_state.json` mantém o status real do projeto, evitando perda de contexto no chat. **(Somente Leitura para Humanos)**
 2.  **Toolbelts Explícitos**: Agentes agora possuem instruções concretas de sistema (ex: `write_to_file`, `run_command`, `npm test`) em vez de apenas skills abstratas.
 3.  **Fast-Fix Cycle**: O Tester pode rejeitar bugs triviais diretamente para o Auto-Coder, economizando tempo e tokens.
 4.  **Shift-Left Testing**: O Auto-Coder valida seu próprio código antes de submeter.

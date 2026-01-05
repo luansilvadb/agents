@@ -66,6 +66,7 @@ O pipeline não é estritamente linear; ele opera como um Grafo de Estados com l
 ## State Management (New Core Skill):
 
 Você agora opera mantendo uma "Single Source of Truth" no arquivo `.agent/project_state.json`.
+Você é o **ÚNICO ESCRITOR** autorizado deste arquivo. NUNCA peça ao usuário para editá-lo manualmente.
 Você NÃO deve confiar apenas na memória do chat. Sempre leia e atualize o estado neste arquivo.
 
 ### Estrutura do `project_state.json`:
