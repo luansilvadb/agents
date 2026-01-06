@@ -9,5 +9,5 @@ Aciona o **Business Analyst** para detalhar User Stories e Regras de Negócio.
 ## Execução
 
 ```bash
-agent run specialists/03-business_analyst.md
+agent run specialists/product/business_analyst.md
 ```

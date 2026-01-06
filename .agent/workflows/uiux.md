@@ -9,5 +9,5 @@ Aciona o **UI/UX Designer** para criar wireframes, protótipos e o Design System
 ## Execução
 
 ```bash
-agent run specialists/06-uiux_designer.md
+agent run specialists/design/uiux_designer.md
 ```

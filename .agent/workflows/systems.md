@@ -9,5 +9,5 @@ Aciona o **System Analyst** para definir contratos de API e modelos de dados ló
 ## Execução
 
 ```bash
-agent run specialists/04-system_analyst.md
+agent run specialists/product/system_analyst.md
 ```

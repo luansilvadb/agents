@@ -1,48 +1,84 @@
-# Protocolo de Handoff (V3.0)
+# Protocolo de Handoff Escalável (V4.0)
 
-Este protocolo define a cadeia de custódia dos artefatos. Para que o pipeline funcione, cada etapa deve entregar **exatamente** o que a próxima etapa espera.
+> **Core Philosophy**: Handoffs são **Contratos de Serviço**. A escalabilidade vem do desacoplamento entre quem produz e quem consome, mediados por contratos rígidos de entrada e saída.
 
-> **Regra de Ouro**: "Garbage In, Garbage Out". Se o artefato de entrada for ruim, REJEITE-O imediatamente para o agente anterior.
+## 1. O Contrato de Handoff (The Contract)
 
-## 1. Matriz de Handoff
+Para escalar o pipeline, abandonamos a "cadeia simples" em favor de **Fases de Valor**. Cada interação entre agentes é governada por um contrato que define explicitamente:
 
-| Passo Atual | Agente (Origem) | Artefato Gerado (Output) | Próximo Passo | Agente (Destino) | Validação Esperada |
-| :--- | :--- | :--- | :--- | :--- | :--- |
-| **01** | Product Manager | `product_backlog.md` | **02** | Scrum Master | Lista priorizada existe? |
-| **02** | Scrum Master | `sprint_plan.md` | **03** | Business Analyst | Meta da sprint clara? |
-| **03** | Business Analyst | `detailed_specifications.md` | **04** | System Analyst | Critérios de aceite Gherkin? |
-| **04** | System Analyst | `technical_specifications.md` | **05** | Architect | Contratos de API/Dados? |
-| **05** | Architect | `architecture_design.md` | **06** / **07** | UI/UX & Security | Stack definida? |
-| **06** | UI/UX Designer | `ui_design_system.md` | **07** | Security Design | Mockups/Tokens existem? |
-| **07** | Security Design | `security_policies.md` | **08** | Tech Lead | Threat Model definido? |
-| **08** | Tech Lead | `implementation_plan.md` | **09** | Senior Developer | Tarefas < 1 dia? |
-| **09** | Senior Developer | `src/*` (Código) | **10** / **11** | DBA & QA | Compila/Roda? |
-| **10** | DBA | `database/*` (Schema) | **11** | QA Engineer | Migrations rodam? |
-| **11** | QA Engineer | `test_report.md` | **12** | Security Validation | Passou nos testes? |
-| **12** | Security Val | `security_validation_report.md` | **13** | Tech Writer | Sem vulns críticas? |
-| **13** | Tech Writer | `docs/*` | **14** | Support Engineer | Docs legíveis? |
-| **14** | Support Engineer | `user_feedback_report.md` | **01** | Product Manager | Insights para V2? |
+1.  **Input Antecedente** (O que eu preciso para começar)
+2.  **Transformação de Valor** (O que eu faço)
+3.  **Output Garantido** (O que eu entrego)
+4.  **Portão de Qualidade** (Critérios de Aceite/DoD)
 
-## 2. Mecânica de Rejeição
+### Estrutura do Artefato de Handoff
+Todo handoff deve incluir meta-dados implícitos ou explícitos:
 
-Se um agente receber um artefato inválido (ex: `specs` sem critérios de aceite), ele deve:
+```yaml
+handoff_manifest:
+  source_agent: "[Nome do Agente]"
+  target_phase: "[Próxima Fase/Agente]"
+  artifacts: ["lista/de/arquivos.md"]
+  validation_status: "verified" # só entregar se verificado
+  context_tags: ["feature-x", "fix", "critical"]
+```
 
-1. **NÃO processar** a tarefa.
-2. Escrever um relatório de rejeição no formato:
-   ```markdown
-   # REJECTED: [Nome do Artefato]
-   **Motivo**: O artefato está incompleto.
-   **Faltando**: Critérios de aceite na história #12.
-   **Ação**: Devolvendo para [Agente Anterior].
-   ```
-3. O Orquestrador reiniciará o passo anterior.
+## 2. Arquitetura de Fases (Scalable Workflow)
 
-## 3. Definição de "Pronto" (DoD)
+Em vez de passos lineares rígidos (1..14), agrupamos o fluxo em **Fases Lógicas**. Isso permite paralelismo (ex: UI e Arquitetura ocorrendo simultaneamente) e facilita adicionar novos agentes especialistas sem quebrar a numeração.
 
-Um handoff só é válido se:
-1. O arquivo existe no caminho correto (`artifacts/` ou `docs/` ou `src/`).
-2. O conteúdo não é um placeholder ("Lorem Ipsum").
-3. O formato (Markdown/Code) está sintaticamente correto.
+### Fase 1: Discovery & Strategy (O "Porquê" e "O Quê")
+| Agente | Role | Output Principal | Validação (DoD) |
+| :--- | :--- | :--- | :--- |
+| **Product Manager** | Owner de Valor | `product_backlog.md` | Priorização Value-based clara |
+| **Scrum Master** | Process Owner | `sprint_plan.md` | Capacidade do time respeitada |
+
+### Fase 2: Specification & Design (O "Como Lógico")
+_Nesta fase, múltiplos especialistas podem trabalhar em paralelo após a Especificação Funcional._
+
+| Agente | Role | Output Principal | Validação (DoD) |
+| :--- | :--- | :--- | :--- |
+| **Business Analyst** | Tradutor de Req. | `detailed_specifications.md` | Sem ambiguidade de negócio |
+| **System Analyst** | Tradutor Técnico | `technical_specifications.md` | Gherkin/Contratos definidos |
+| **Architect** | Estrutura | `architecture_design.md` | Diagramas C4 / Decisões ADR |
+| **UI/UX Designer** | Experiência | `ui_design_system.md` | Tokens e Acessibilidade |
+| **Security Engineer**| Design Seguro | `security_policies.md` | Threat Model validado |
+
+### Fase 3: Construction (A Materialização)
+| Agente | Role | Output Principal | Validação (DoD) |
+| :--- | :--- | :--- | :--- |
+| **Tech Lead** | Estratégia Téc. | `implementation_plan.md` | Decomposição atômica de tasks |
+| **Senior Dev** | Implementador | `src/*` | Clean Code, SOLID, Build Pass |
+| **DBA** | Dados | `database/*` | Normalização, Migrations Idempotentes |
+
+### Fase 4: Quality & Delivery (A Garantia)
+| Agente | Role | Output Principal | Validação (DoD) |
+| :--- | :--- | :--- | :--- |
+| **QA Engineer** | Testes | `test_report.md` | Cobertura > 80%, 0 Critical Bugs |
+| **Security Val** | Pentest/Audit | `security_val_report.md` | SAST/DAST limpos |
+| **Tech Writer** | Doc | `docs/*` & `README.md` | Documentação "User-ready" |
+| **Support Eng** | Feedback Loop | `feedback_report.md` | Lições aprendidas para Fase 1 |
+
+## 3. Protocolo de Rejeição (Circuit Breaker)
+
+Para manter a escalabilidade, erros não devem propagar. Implementamos o padrão **Circuit Breaker** no handoff:
+
+1.  **Fast Fail**: Se o `Input` não atende ao contrato, o agente **NÃO TENTA CORRIGIR**.
+2.  **Return to Sender**: O artefato é devolvido imediatamente com tag `#REJECTED`.
+3.  **Feedback Estruturado**:
+    ```markdown
+    # FALHA DE CONTRATO DETECTADA
+    - **Violação**: [Descrever ex: Falta de Critério de Aceite]
+    - **Impacto**: Bloqueia geração de testes unitários.
+    - **Correção Necessária**: Adicionar seção "Scenario" no Gherkin.
+    ```
+
+## 4. Estendendo o Protocolo (Plugins)
+
+Para adicionar novos agentes (ex: um "DevOps Engineer" ou "AI Ethics Officer"):
+1.  Identifique em qual **Fase** ele atua.
+2.  Defina seus Inputs e Outputs no formato de **Contrato**.
+3.  Insira-o no fluxo sem precisar renumerar todo o pipeline, apenas ajustando as dependências de entrada/saída.
 
 ---
-*DevTeam AI - Pipeline Integrity Protocol*
+*DevTeam AI - Scalable Modular Protocol V4.0*

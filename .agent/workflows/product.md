@@ -9,5 +9,5 @@ Aciona o **Product Manager** para criar ou refinar o Backlog do Produto.
 ## Execução
 
 ```bash
-agent run specialists/01-product_manager.md
+agent run specialists/product/product_manager.md
 ```

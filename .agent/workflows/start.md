@@ -14,5 +14,5 @@ Este workflow dispara o **Passo 1** do pipeline, acionando o Product Manager par
 
 ```bash
 # Iniciar o Product Manager
-agent run specialists/01-product_manager.md
+agent run specialists/product/product_manager.md
 ```

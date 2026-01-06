@@ -9,5 +9,5 @@ Aciona o **QA Engineer** para executar testes e2e e validar a qualidade do softw
 ## Execução
 
 ```bash
-agent run specialists/11-qa_engineer.md
+agent run specialists/quality/qa_engineer.md
 ```

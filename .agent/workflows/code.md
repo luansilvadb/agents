@@ -9,5 +9,5 @@ Aciona o **Senior Developer** para escrever o código-fonte seguindo o plano do 
 ## Execução
 
 ```bash
-agent run specialists/09-senior_developer.md
+agent run specialists/engineering/senior_developer.md
 ```

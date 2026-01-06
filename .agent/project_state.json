@@ -2,28 +2,171 @@
   "project": {
     "name": "DevTeam AI V3.0 Project",
     "status": "READY",
-    "iteration": 1
+    "iteration": 1,
+    "version": "2.0.0",
+    "last_updated": "2026-01-05T21:37:46-03:00"
   },
   "pipeline": {
-    "current_step": 0,
-    "current_agent": "None",
-    "last_command": "None"
+    "current_stage": null,
+    "last_completed_stage": null,
+    "status": "IDLE",
+    "active_agents": []
   },
-  "steps": {
-    "01": { "agent": "Product Manager", "status": "PENDING", "artifact": "product_backlog.md" },
-    "02": { "agent": "Scrum Master", "status": "PENDING", "artifact": "sprint_plan.md" },
-    "03": { "agent": "Business Analyst", "status": "PENDING", "artifact": "detailed_specifications.md" },
-    "04": { "agent": "System Analyst", "status": "PENDING", "artifact": "technical_specifications.md" },
-    "05": { "agent": "Software Architect", "status": "PENDING", "artifact": "architecture_design.md" },
-    "06": { "agent": "UI/UX Designer", "status": "PENDING", "artifact": "ui_design_system.md" },
-    "07": { "agent": "Security Engineer", "status": "PENDING", "artifact": "security_policies.md" },
-    "08": { "agent": "Tech Lead", "status": "PENDING", "artifact": "implementation_plan.md" },
-    "09": { "agent": "Senior Developer", "status": "PENDING", "artifact": "src/" },
-    "10": { "agent": "DBA", "status": "PENDING", "artifact": "database/" },
-    "11": { "agent": "QA Engineer", "status": "PENDING", "artifact": "test_report.md" },
-    "12": { "agent": "Security Validation", "status": "PENDING", "artifact": "security_validation_report.md" },
-    "13": { "agent": "Technical Writer", "status": "PENDING", "artifact": "docs/" },
-    "14": { "agent": "Support Engineer", "status": "PENDING", "artifact": "user_feedback_report.md" }
+  "stages": {
+    "product_strategy": {
+      "index": 1,
+      "title": "Product Strategy & Backlog",
+      "agent": "Product Manager",
+      "status": "PENDING",
+      "artifact": "product_backlog.md",
+      "dependencies": [],
+      "description": "Define product vision, strategy, and initial backlog."
+    },
+    "sprint_planning": {
+      "index": 2,
+      "title": "Sprint Planning",
+      "agent": "Scrum Master",
+      "status": "PENDING",
+      "artifact": "sprint_plan.md",
+      "dependencies": [
+        "product_strategy"
+      ],
+      "description": "Plan the upcoming sprint scope and tasks."
+    },
+    "business_analysis": {
+      "index": 3,
+      "title": "Business Analysis",
+      "agent": "Business Analyst",
+      "status": "PENDING",
+      "artifact": "detailed_specifications.md",
+      "dependencies": [
+        "sprint_planning"
+      ],
+      "description": "Detailed analysis of business requirements."
+    },
+    "system_analysis": {
+      "index": 4,
+      "title": "System Analysis",
+      "agent": "System Analyst",
+      "status": "PENDING",
+      "artifact": "technical_specifications.md",
+      "dependencies": [
+        "business_analysis"
+      ],
+      "description": "Translate business specs into technical system requirements."
+    },
+    "architecture_design": {
+      "index": 5,
+      "title": "Architecture Design",
+      "agent": "Software Architect",
+      "status": "PENDING",
+      "artifact": "architecture_design.md",
+      "dependencies": [
+        "system_analysis"
+      ],
+      "description": "High-level software architecture and design patterns."
+    },
+    "ui_ux_design": {
+      "index": 6,
+      "title": "UI/UX Design",
+      "agent": "UI/UX Designer",
+      "status": "PENDING",
+      "artifact": "ui_design_system.md",
+      "dependencies": [
+        "architecture_design"
+      ],
+      "description": "User interface and user experience design system."
+    },
+    "security_design": {
+      "index": 7,
+      "title": "Security Design",
+      "agent": "Security Engineer",
+      "status": "PENDING",
+      "artifact": "security_policies.md",
+      "dependencies": [
+        "architecture_design"
+      ],
+      "description": "Security threat modeling and policy definition."
+    },
+    "tech_planning": {
+      "index": 8,
+      "title": "Technical Planning",
+      "agent": "Tech Lead",
+      "status": "PENDING",
+      "artifact": "implementation_plan.md",
+      "dependencies": [
+        "ui_ux_design",
+        "security_design"
+      ],
+      "description": "Detailed technical implementation plan."
+    },
+    "implementation": {
+      "index": 9,
+      "title": "Implementation",
+      "agent": "Senior Developer",
+      "status": "PENDING",
+      "artifact": "src/",
+      "dependencies": [
+        "tech_planning"
+      ],
+      "description": "Core code implementation."
+    },
+    "database_management": {
+      "index": 10,
+      "title": "Database Management",
+      "agent": "DBA",
+      "status": "PENDING",
+      "artifact": "database/",
+      "dependencies": [
+        "tech_planning"
+      ],
+      "description": "Database schema design and management."
+    },
+    "quality_assurance": {
+      "index": 11,
+      "title": "Quality Assurance",
+      "agent": "QA Engineer",
+      "status": "PENDING",
+      "artifact": "test_report.md",
+      "dependencies": [
+        "implementation",
+        "database_management"
+      ],
+      "description": "Comprehensive testing and QA reporting."
+    },
+    "security_validation": {
+      "index": 12,
+      "title": "Security Validation",
+      "agent": "Security Validation",
+      "status": "PENDING",
+      "artifact": "security_validation_report.md",
+      "dependencies": [
+        "quality_assurance"
+      ],
+      "description": "Final security verification and penetration testing."
+    },
+    "documentation": {
+      "index": 13,
+      "title": "Documentation",
+      "agent": "Technical Writer",
+      "status": "PENDING",
+      "artifact": "docs/",
+      "dependencies": [
+        "implementation"
+      ],
+      "description": "Technical and user documentation."
+    },
+    "support_feedback": {
+      "index": 14,
+      "title": "Support & Feedback",
+      "agent": "Support Engineer",
+      "status": "PENDING",
+      "artifact": "user_feedback_report.md",
+      "dependencies": [
+        "quality_assurance"
+      ],
+      "description": "User feedback collection and support simulation."
+    }
   },
   "history": []
 }

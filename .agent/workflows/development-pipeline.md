@@ -29,85 +29,85 @@ Este workflow define o ciclo de vida de desenvolvimento V3.0, focado em alta efi
 
 ### 💡 Passo 1: Product Manager
 **Comando:** `/product`
-**Agente:** `01-product_manager.md`
+**Agente:** `product/product_manager.md`
 **Output:** `product_backlog.md`
 **Ação:** Define "O QUE" construir e "POR QUE".
 
 ### 🔄 Passo 2: Scrum Master
 **Comando:** `/scrum`
-**Agente:** `02-scrum_master.md`
+**Agente:** `process/scrum_master.md`
 **Output:** `sprint_plan.md`
 **Ação:** Define "O QUE CABE" na Sprint.
 
 ### 📋 Passo 3: Business Analyst
 **Comando:** `/analysis`
-**Agente:** `03-business_analyst.md`
+**Agente:** `product/business_analyst.md`
 **Output:** `detailed_specifications.md`
 **Ação:** Detalha os critérios de aceite.
 
 ### 📝 Passo 4: System Analyst
 **Comando:** `/systems`
-**Agente:** `04-system_analyst.md`
+**Agente:** `product/system_analyst.md`
 **Output:** `technical_specifications.md`
 **Ação:** Define contratos de API e modelos lógicos.
 
 ### 🏗️ Passo 5: Software Architect
 **Comando:** `/architecture`
-**Agente:** `05-software_architect.md`
+**Agente:** `engineering/software_architect.md`
 **Output:** `architecture_design.md`
 **Ação:** Define a estrutura do sistema.
 
 ### 🎨 Passo 6: UI/UX Designer
 **Comando:** `/uiux`
-**Agente:** `06-uiux_designer.md`
+**Agente:** `design/uiux_designer.md`
 **Output:** `ui_design_system.md`
 **Ação:** Define a aparência e fluxo visual.
 
 ### 🛡️ Passo 7: Security Engineer (Design)
 **Comando:** `/security-design`
-**Agente:** `07-security_engineer.md`
+**Agente:** `quality/security_engineer.md`
 **Output:** `security_policies.md`
 **Ação:** Garante "Security by Design".
 
 ### 👨‍💻 Passo 8: Tech Lead
 **Comando:** `/tech-plan`
-**Agente:** `08-tech_lead.md`
+**Agente:** `engineering/tech_lead.md`
 **Output:** `implementation_plan.md`
 **Ação:** Traduz arquitetura em tarefas para o dev.
 
 ### 💻 Passo 9: Senior Developer
 **Comando:** `/code`
-**Agente:** `09-senior_developer.md`
+**Agente:** `engineering/senior_developer.md`
 **Output:** Código Fonte (`src/`)
 **Ação:** Escreve o software.
 
 ### 💾 Passo 10: DBA / Data Engineer
 **Comando:** `/database`
-**Agente:** `10-dba_data_engineer.md`
+**Agente:** `engineering/dba_data_engineer.md`
 **Output:** Migrations e SQL Scripts.
 **Ação:** Garante persistência e integridade.
 
 ### 🧪 Passo 11: QA Engineer
 **Comando:** `/test`
-**Agente:** `11-qa_engineer.md`
+**Agente:** `quality/qa_engineer.md`
 **Output:** `test_report.md`
 **Ação:** Valida funcionalidade e bugs.
 
 ### 🕵️‍♂️ Passo 12: Security Validation
 **Comando:** `/security-validation`
-**Agente:** `12-security_validation.md`
+**Agente:** `quality/security_validation_engineer.md`
 **Output:** `security_validation_report.md`
 **Ação:** Valida vulnerabilidades no código final.
 
 ### 📚 Passo 13: Technical Writer
 **Comando:** `/docs`
-**Agente:** `13-technical_writer.md`
+**Agente:** `process/technical_writer.md`
 **Output:** Documentação (`docs/`, `README.md`)
 **Ação:** Documenta para o usuário e devs.
 
 ### 🎧 Passo 14: Support Engineer
 **Comando:** `/support`
-**Agente:** `14-support_engineer.md`
+**Agente:** `process/support_engineer.md`
 **Output:** `user_feedback_report.md`
 **Ação:** Fecha o ciclo com insights de uso.
 

@@ -9,5 +9,5 @@ Aciona o **Software Architect** para desenhar a estrutura do sistema e decidir a
 ## Execução
 
 ```bash
-agent run specialists/05-software_architect.md
+agent run specialists/engineering/software_architect.md
 ```

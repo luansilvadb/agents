@@ -9,5 +9,5 @@ Aciona o **Technical Writer** para gerar a documentação final do projeto.
 ## Execução
 
 ```bash
-agent run specialists/13-technical_writer.md
+agent run specialists/process/technical_writer.md
 ```

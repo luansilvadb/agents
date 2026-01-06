@@ -9,5 +9,5 @@ Aciona o **Security Engineer** (Fase de Validação) para verificar vulnerabilid
 ## Execução
 
 ```bash
-agent run specialists/12-security_validation.md
+agent run specialists/quality/security_validation_engineer.md
 ```

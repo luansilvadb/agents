@@ -9,5 +9,5 @@ Aciona o **Scrum Master** para planejar a Sprint e definir metas.
 ## Execução
 
 ```bash
-agent run specialists/02-scrum_master.md
+agent run specialists/process/scrum_master.md
 ```

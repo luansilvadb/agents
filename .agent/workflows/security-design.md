@@ -9,5 +9,5 @@ Aciona o **Security Engineer** para validar a arquitetura e criar políticas de 
 ## Execução
 
 ```bash
-agent run specialists/07-security_engineer.md
+agent run specialists/quality/security_engineer.md
 ```

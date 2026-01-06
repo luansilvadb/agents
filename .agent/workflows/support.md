@@ -9,5 +9,5 @@ Aciona o **Support Engineer** para simular atendimento, gerar knowledge base e f
 ## Execução
 
 ```bash
-agent run specialists/14-support_engineer.md
+agent run specialists/process/support_engineer.md
 ```

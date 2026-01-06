@@ -8,7 +8,7 @@ Cria um arquivo de agente seguindo o padrão V3.0 e um workflow associado.
 
 ## Template V3.0
 
-Para criar um novo agente, utilize o template abaixo e salve em `d:\agents\specialists\NN-nome_agente.md`.
+Para criar um novo agente, utilize o template abaixo e salve em `specialists/NN-nome_agente.md`.
 
 ```markdown
 # [Emoji] Agente [Nome]
@@ -66,7 +66,7 @@ Olá! Sou o **[Agente]**. [Emoji]
 
 ## Workflows
 
-Lembre-se de criar também o arquivo de workflow em `d:\agents\.agent\workflows\nome.md`:
+Lembre-se de criar também o arquivo de workflow em `.agent/workflows/nome.md`:
 
 ```markdown
 ---

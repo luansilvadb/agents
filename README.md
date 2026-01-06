@@ -16,22 +16,22 @@ O **DevTeam AI V3.0** foi reescrito para eliminar a complexidade de nuvem e foca
 
 ## 👥 O Time (14 Especialistas)
 
-| ID | Agente | Comando | Função Principal |
+| Domínio | Agente | Comando | Função Principal |
 |:---|:---|:---|:---|
-| **01** | Product Manager | `/product` | Define a Visão e Backlog do Produto. |
-| **02** | Scrum Master | `/scrum` | Planeja a Sprint e remove bloqueios. |
-| **03** | Business Analyst | `/analysis` | Detalha requisitos em User Stories. |
-| **04** | System Analyst | `/systems` | Especifica contratos de API e Dados. |
-| **05** | Architect | `/architecture` | Desenha a estrutura e stack tecnológica. |
-| **06** | UI/UX Designer | `/uiux` | Cria Design System e Mockups. |
-| **07** | Security Engineer | `/security-design` | Modelagem de ameaças (Pre-Code). |
-| **08** | Tech Lead | `/tech-plan` | Plano de implementação técnica. |
-| **09** | Senior Developer | `/code` | Implementação (Clean Code + TDD). |
-| **10** | DBA | `/database` | Banco de dados e Migrations. |
-| **11** | QA Engineer | `/test` | Testes automatizados e manuais. |
-| **12** | Security Validation | `/security-validation` | Validação de segurança (SAST/DAST). |
-| **13** | Tech Writer | `/docs` | Documentação técnica e de usuário. |
-| **14** | Support Engineer | `/support` | Simulação de uso e Feedback loop. |
+| **Product** | Product Manager | `/product` | Define a Visão e Backlog do Produto. |
+| **Product** | Business Analyst | `/analysis` | Detalha requisitos em User Stories. |
+| **Product** | System Analyst | `/systems` | Especifica contratos de API e Dados. |
+| **Process** | Scrum Master | `/scrum` | Planeja a Sprint e remove bloqueios. |
+| **Process** | Tech Writer | `/docs` | Documentação técnica e de usuário. |
+| **Process** | Support Engineer | `/support` | Simulação de uso e Feedback loop. |
+| **Design** | UI/UX Designer | `/uiux` | Cria Design System e Mockups. |
+| **Engineering** | Architect | `/architecture` | Desenha a estrutura e stack tecnológica. |
+| **Engineering** | Tech Lead | `/tech-plan` | Plano de implementação técnica. |
+| **Engineering** | Senior Developer | `/code` | Implementação (Clean Code + TDD). |
+| **Engineering** | DBA | `/database` | Banco de dados e Migrations. |
+| **Quality** | Security Engineer | `/security-design` | Modelagem de ameaças (Pre-Code). |
+| **Quality** | QA Engineer | `/test` | Testes automatizados e manuais. |
+| **Quality** | Security Validation | `/security-validation` | Validação de segurança (SAST/DAST). |
 
 ---
 
@@ -66,7 +66,7 @@ Para ver o status do projeto e os artefatos gerados:
 ## 📁 Estrutura do Projeto
 
 ```
-d:\agents\
+project-root/
 ├── .agent/
 │   ├── workflows/               # Atalhos dos Slash Commands
 │   ├── memory/                  # Project Context & Lessons Learned

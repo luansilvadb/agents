@@ -9,5 +9,5 @@ Aciona o **Tech Lead** para quebrar a arquitetura em tarefas de implementação 
 ## Execução
 
 ```bash
-agent run specialists/08-tech_lead.md
+agent run specialists/engineering/tech_lead.md
 ```
