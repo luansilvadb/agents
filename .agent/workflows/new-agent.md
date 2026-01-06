@@ -2,150 +2,84 @@
 description: Criar novo agente especialista usando o template base
 ---
 
-# 🆕 Workflow: Criar Novo Agente
+# 🆕 Criar Novo Agente
 
-Este workflow guia a criação de um novo agente especialista usando o template padrão.
+Cria um arquivo de agente seguindo o padrão V3.0 e um workflow associado.
 
-## Quando Usar
+## Template V3.0
 
-- Para adicionar novo papel à equipe
-- Para especializar um agente existente
-- Para criar agentes de domínio específico
-
-## Como Criar
-
-### Passo 1: Copiar Template
-
-Use o template base como referência:
-```
-d:\agents\meta\agent-template.md
-```
-
-### Passo 2: Definir Identidade
-
-Preencha as seções de identidade:
+Para criar um novo agente, utilize o template abaixo e salve em `d:\agents\specialists\NN-nome_agente.md`.
 
 ```markdown
-## Role: [Nome do Papel em Português]
+# [Emoji] Agente [Nome]
+
+## Role: [Role Principal]
 
 ## Background:
-[Descreva 3-4 frases sobre:]
-- Anos de experiência
-- Área de especialização
-- Conquistas relevantes
-- O que o torna único
+[Experiência e filosofia]
+
+## Preferences:
+- [Preferências]
 
 ## Profile:
-- version: 1.0.0
+- version: 3.0
 - language: Portuguese
-- description: [1-2 frases sobre o propósito]
-```
-
-### Passo 3: Definir Comportamento
-
-```markdown
-## Preferences:
-- [6 preferências sobre como trabalha]
+- description: [Passo e função no pipeline]
 
 ## Goals:
-1. [4 objetivos principais]
+1. [Objetivo 1]
+2. [Objetivo 2]
 
 ## Constraints:
-1. [6 regras que NUNCA deve quebrar]
+1. [Restrição 1]
+2. [Restrição 2]
 
 ## Skills:
-1. **[Skill 1]**: [Descrição]
-   [5 skills principais]
-```
+1. **[Skill]**: [Descrição]
 
-### Passo 4: Definir Interface
+## Toolbelt:
+### Sequential Thinking
+- Ferramenta: `mcp_sequential-thinking_sequentialthinking`
+- Uso: [Para que usar]
 
-```markdown
 ## InputArtifacts:
-- **Tipo**: [o que recebe]
-- **Fonte**: [de quem recebe]
-- **Formato**: [formato esperado]
+- **Tipo**: [`artifact_name`]
+- **Fonte**: [Agente Anterior]
+- **Formato**: Markdown
+- **Obrigatório**: Sim
 
 ## OutputArtifacts:
-- **Tipo**: [o que produz]
-- **Destino**: [para quem envia]
-- **Formato**: [formato de saída]
-```
+- **Tipo**: [`artifact_name`]
+- **Destino**: [Próximo Agente]
+- **Formato**: Markdown
+- **Validação**: [Critérios]
 
-### Passo 5: Adicionar Exemplos
-
-```markdown
-## Examples:
-### Exemplo de Input:
-[Mostre entrada típica]
-
-### Exemplo de Output:
-[Mostre saída esperada]
-```
-
-### Passo 6: Definir Fluxo
-
-```markdown
 ## OutputFormat:
-1. [Etapa 1 do processamento]
-2. [Etapa 2]
-...
+1. [Passo 1]
+2. [Passo 2]
 
 ## Initialization:
-[Mensagem de boas-vindas com:]
-- Emoji identificador
-- Nome e papel
-- O que faz (3-4 bullets)
-- Filosofia de trabalho
-- Pergunta inicial
+Olá! Sou o **[Agente]**. [Emoji]
+[Frase de impacto]
+**[Pergunta de início?]**
 ```
 
-### Passo 7: Salvar Agente
+## Workflows
 
-Salve em:
-```
-d:\agents\specialists\[NN]-[nome-do-agente].md
-```
-
-Onde `NN` é o número do passo no pipeline (se aplicável).
-
-### Passo 8: Criar Workflow (Opcional)
-
-Crie um slash command em:
-```
-d:\agents\.agent\workflows\[nome].md
-```
-
-## Checklist de Validação
-
-- [ ] Role está claro e específico
-- [ ] Background é crível e relevante
-- [ ] Goals são mensuráveis
-- [ ] Constraints previnem uso indevido
-- [ ] Skills são acionáveis
-- [ ] InputArtifacts são especificados
-- [ ] OutputArtifacts são especificados
-- [ ] Examples são realistas
-- [ ] Initialization é acolhedor
-
-## Exemplo: Agente de Segurança
+Lembre-se de criar também o arquivo de workflow em `d:\agents\.agent\workflows\nome.md`:
 
 ```markdown
-## Role: Engenheiro de Segurança (Security Engineer)
-
-## Background:
-Você é um Engenheiro de Segurança com 12 anos de experiência 
-em segurança de aplicações web. Certificado CISSP e OSCP,
-você já identificou vulnerabilidades críticas em sistemas
-usados por milhões de usuários.
-
-## Goals:
-1. Identificar vulnerabilidades de segurança no código
-2. Recomendar correções seguindo OWASP Top 10
-3. Validar configurações de autenticação e autorização
-4. Garantir compliance com padrões de segurança
-```
-
+---
+description: [Descrição Curta]
 ---
 
-*DevTeam AI - Criador de Agentes v1.0.0*
+# [Emoji] [Nome do Comando]
+
+Aciona o **[Agente]** para [Ação].
+
+## Execução
+
+```bash
+agent run specialists/NN-nome_agente.md
+```
+```

@@ -1,95 +1,90 @@
-# 🏢 DevTeam AI v2.0 - Software House Autônoma
+# 🏢 DevTeam AI V3.0 Essential - Local-First Software House
 
-> Sistema multiagente híbrido para desenvolvimento de software, com gestão de estado centralizada e correção cíclica.
+> Sistema multiagente de 14 especialistas otimizado para desenvolvimento de software local de alta qualidade.
 
-## 📋 Visão Geral
+## 📋 Visão Geral (V3.0)
 
-Este sistema simula uma empresa de desenvolvimento de software de alta performance. Diferente de pipelines lineares simples, o **DevTeam AI v2.0** opera com **Single Source of Truth** (Project State) e possui loops de "Fast-Fix" para correção rápida de erros.
+O **DevTeam AI V3.0** foi reescrito para eliminar a complexidade de nuvem e focar no que importa: **Qualidade de Código (`Software Craftsmanship`)** e **Velocidade de Execução Local**.
 
-## 🔄 Arquitetura Híbrida (V2.0)
+### Principais Mudanças
+1.  **Zero Cloud Overhead**: Removidos agentes de Docker/K8s/CI complexos. Foco em construir o app na sua máquina.
+2.  **14 Especialistas**: Papéis granulares (Product Manager, Scrum Master, UI/UX, Security, QA...) para cobrir todo o SDLC.
+3.  **Slash Commands**: Controle total do pipeline com comandos como `/product`, `/code`, `/test`.
+4.  **Glass Box Observability**: Raciocínio visível através da ferramenta `Sequential Thinking`.
 
-O pipeline combina fluxo linear para definição com ciclos de feedback rápidos para construção.
+---
 
+## 👥 O Time (14 Especialistas)
+
+| ID | Agente | Comando | Função Principal |
+|:---|:---|:---|:---|
+| **01** | Product Manager | `/product` | Define a Visão e Backlog do Produto. |
+| **02** | Scrum Master | `/scrum` | Planeja a Sprint e remove bloqueios. |
+| **03** | Business Analyst | `/analysis` | Detalha requisitos em User Stories. |
+| **04** | System Analyst | `/systems` | Especifica contratos de API e Dados. |
+| **05** | Architect | `/architecture` | Desenha a estrutura e stack tecnológica. |
+| **06** | UI/UX Designer | `/uiux` | Cria Design System e Mockups. |
+| **07** | Security Engineer | `/security-design` | Modelagem de ameaças (Pre-Code). |
+| **08** | Tech Lead | `/tech-plan` | Plano de implementação técnica. |
+| **09** | Senior Developer | `/code` | Implementação (Clean Code + TDD). |
+| **10** | DBA | `/database` | Banco de dados e Migrations. |
+| **11** | QA Engineer | `/test` | Testes automatizados e manuais. |
+| **12** | Security Validation | `/security-validation` | Validação de segurança (SAST/DAST). |
+| **13** | Tech Writer | `/docs` | Documentação técnica e de usuário. |
+| **14** | Support Engineer | `/support` | Simulação de uso e Feedback loop. |
+
+---
+
+## 🚀 Como Usar
+
+### 1. Iniciar Projeto
+Para começar um novo ciclo, simplesmente digite:
+
+```bash
+/start
 ```
-┌─────────────────────────────────────────────────────────────────────────────────────────┐
-│                           PIPELINE HÍBRIDO DE DESENVOLVIMENTO                           │
-└─────────────────────────────────────────────────────────────────────────────────────────┘
 
-  PLANNIG PHASE:
-  ┌───────┐    ┌─────────────┐    ┌───────────┐
-  │  ASK  │───▶│SPECIFICATION│───▶│ ARCHITECT │
-  └───────┘    └─────────────┘    └───────────┘
-                                        │
-                                        ▼
-  BUILD PHASE (Cyclic):           ┌───────────┐    ⚡ Fast-Fix Loop
-  ┌──────────────────────────────▶│ AUTO-CODER│◀──────────────┐
-  │                               └───────────┘               │
-  │                                     │                     │
-  │                                     ▼                     │
-  │                               ┌───────────┐        ┌─────────────┐
-  │           Complex Fix Loop    │  TESTER   │───────▶│ FAILED_FAST │
-  └───────────────────────────────│ (Quality) │        └─────────────┘
-                                  └───────────┘
-                                        │
-                                        ▼
-  RELEASE PHASE:                  ┌────────────┐    ┌─────────────┐
-                                  │ INTEGRATOR │───▶│DOCUMENTATION│
-                                  └────────────┘    └─────────────┘
+Isso carregará o **Orquestrador**, que guiará você desde a definição do produto.
+
+### 2. Navegação
+Você não precisa decorar os comandos. O Orquestrador lhe dirá qual o próximo passo.
+Mas se quiser pular direto para uma etapa:
+
+- Quer mudar o backlog? Use `/product`.
+- Quer escrever código? Use `/code`.
+- Quer rodar testes? Use `/test`.
+
+### 3. Acompanhamento
+Para ver o status do projeto e os artefatos gerados:
+
+```bash
+/status
 ```
 
-## ✨ Novidades da Versão 2.0
+---
 
-1.  **Gestão de Estado Centralizada**: O arquivo `.agent/project_state.json` mantém o status real do projeto, evitando perda de contexto no chat. **(Somente Leitura para Humanos)**
-2.  **Toolbelts Explícitos**: Agentes agora possuem instruções concretas de sistema (ex: `write_to_file`, `run_command`, `npm test`) em vez de apenas skills abstratas.
-3.  **Fast-Fix Cycle**: O Tester pode rejeitar bugs triviais diretamente para o Auto-Coder, economizando tempo e tokens.
-4.  **Shift-Left Testing**: O Auto-Coder valida seu próprio código antes de submeter.
-
-## 👥 Agentes e Responsabilidades
-
-| ID | Agente | Função | Foco Principal |
-|----|--------|--------|----------------|
-| -- | **Orchestrator** | Gerente de Projeto | Gestão de Estado e Coordenação |
-| 00 | **Product Strategist** | Estrategista de Produto | Visão, Roadmap e Alinhamento de Negócio |
-| 01 | **Ask** | Analista de Negócios | Levantamento e Refinamento de Requisitos |
-| 02 | **Specification Writer** | Especificador Técnico | Transformação de Requisitos em Specs Técnicas |
-| 03 | **Architect** | Arquiteto de Software | Decisões de Design (ADRs) e Estrutura |
-| 03b| **UI/UX Designer** | Designer | Design System, Interfaces e Usabilidade |
-| 03c| **Security Engineer** | Eng. de Segurança | Análise de Vulnerabilidades e Proteção |
-| 04 | **Auto-Coder** | Desenvolvedor | Implementação (Shift-Left) e Refatoração |
-| 05 | **Tester** | QA Engineer | Testes Unitários, Integração e E2E |
-| 06 | **Debugger** | Eng. de Software | Análise de Logs e Correção de Bucks Complexos |
-| 07 | **Optimizer** | Eng. de Performance | Otimização de Código e Recursos |
-| 08 | **System Integrator** | DevOps/SRE | Pipelines CI/CD e Deploy |
-| 09 | **Documentation Writer** | Tech Writer | Documentação Viva e Manuais |
-| 99 | **Alignment Auditor** | Auditor | Garantia de Consistência e Verdade Única |
-
-## 🔧 Como Usar
-
-O sistema é controlado pelo **Orquestrador**. Não é necessário configurar o editor manualmente.
-
-1.  **Carregue o Orquestrador**: Abra `orchestrator/orchestrator.md` como System Instruction.
-2.  **Inicie**: Digite `/start "Descrição do seu projeto de software"`.
-3.  **Siga o Fluxo**: O Orquestrador instruirá quando trocar de agente (ex: "Carregue `01-ask.md` agora").
-4.  **Monitore**: Veja o progresso em `.agent/project_state.json`.
-
-## 📁 Estrutura Atualizada
+## 📁 Estrutura do Projeto
 
 ```
 d:\agents\
 ├── .agent/
-│   ├── project_state.json       # 🧠 Single Source of Truth
-│   └── workflows/               # Workflows definidos
-├── orchestrator/                # Gerente do Projeto
-├── specialists/                 # Agentes com Toolbelts atualizados
-└── artifacts/                   # Saída gerada (Código, Docs, Testes)
+│   ├── workflows/               # Atalhos dos Slash Commands
+│   ├── memory/                  # Project Context & Lessons Learned
+│   └── project_state.json       # Estado atual do pipeline
+├── orchestrator/                # Agente Coordenador
+├── specialists/                 # Os 14 Agentes (01 a 14)
+├── protocols/                   # Regras de Ética, Handoff e Memória
+├── artifacts/                   # Saída dos Agentes (Docs, Plans)
+└── src/                         # Código Fonte do seu Projeto
 ```
-
-## 🏷️ Versionamento
-
-- **Sistema**: v2.0.0
-- **Release**: Hybrid Architecture & State Management
-- **Data**: 2026-01-05
 
 ---
 
-*DevTeam AI - Transformando ideias em software com inteligência autônoma.*
+## 🏷️ Versionamento
+
+- **Versão**: 3.0.0 Essential
+- **Foco**: Local Development & Software Quality
+- **Data**: 2026-01-05
+
+---
+*DevTeam AI - Transformando sua máquina em uma Software House.*

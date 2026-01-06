@@ -1,23 +1,14 @@
 ---
-description: Exibe o status atual, estado do grafo e saúde do projeto DevTeam AI
+description: Exibe o status atual do projeto listando os artefatos gerados
 ---
 
-# Workflow: Check Project Status
+# 📊 Project Status
 
-Este workflow invoca o **Agente Orquestrador** para fornecer um relatório de situação.
+Verifica o progresso do projeto listando os artefatos gerados no diretório `artifacts/`.
 
-1. **Carregar Contexto**:
-   - Ler `d:\agents\orchestrator\orchestrator.md`.
+## Execução
 
-2. **Inspeção de Estado**:
-   - Verificar qual foi o último Agente ativo e qual o status do último Handoff (Approved/Rejected).
-   - Identificar em qual Loop o projeto se encontra (Planning, Building, Release).
-   - Contar métricas de "Quality Gates" (quantas vezes o código voltou para correção).
-
-3. **Report**:
-   - Gerar uma tabela Markdown ou bloco YAML resumindo o estado, similar ao exemplo `/status` do `orchestrator.md`.
-   - Listar quaisquer **Blockers** ativos.
-   - Listar os últimos artefatos gerados.
-
-4. **Health Check**:
-   - Validar se o processo está "travado" (muitas tentativas sem sucesso) e sugerir intervenção se necessário.
+```powershell
+# Listar artefatos por data de modificação para ver o último passo concluído
+Get-ChildItem -Path artifacts/* -File | Sort-Object LastWriteTime | Select-Object Name, LastWriteTime
+```

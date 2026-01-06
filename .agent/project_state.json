@@ -1,25 +1,29 @@
 {
-  "_warning": "DO NOT EDIT MANUALLY. MANAGED BY ORCHESTRATOR.",
   "project": {
-    "id": "uninitialized",
-    "name": "New Project",
-    "status": "IDLE",
-    "start_time": null,
-    "last_update": null
+    "name": "DevTeam AI V3.0 Project",
+    "status": "READY",
+    "iteration": 1
   },
-  "workflow": {
-    "current_phase": "PLANNING",
-    "current_step_id": 0,
-    "current_agent": "Orchestrator",
-    "iteration": 0,
-    "max_retries": 3
+  "pipeline": {
+    "current_step": 0,
+    "current_agent": "None",
+    "last_command": "None"
   },
-  "history": [],
-  "artifacts": {
-    "docs": [],
-    "code": [],
-    "tests": []
+  "steps": {
+    "01": { "agent": "Product Manager", "status": "PENDING", "artifact": "product_backlog.md" },
+    "02": { "agent": "Scrum Master", "status": "PENDING", "artifact": "sprint_plan.md" },
+    "03": { "agent": "Business Analyst", "status": "PENDING", "artifact": "detailed_specifications.md" },
+    "04": { "agent": "System Analyst", "status": "PENDING", "artifact": "technical_specifications.md" },
+    "05": { "agent": "Software Architect", "status": "PENDING", "artifact": "architecture_design.md" },
+    "06": { "agent": "UI/UX Designer", "status": "PENDING", "artifact": "ui_design_system.md" },
+    "07": { "agent": "Security Engineer", "status": "PENDING", "artifact": "security_policies.md" },
+    "08": { "agent": "Tech Lead", "status": "PENDING", "artifact": "implementation_plan.md" },
+    "09": { "agent": "Senior Developer", "status": "PENDING", "artifact": "src/" },
+    "10": { "agent": "DBA", "status": "PENDING", "artifact": "database/" },
+    "11": { "agent": "QA Engineer", "status": "PENDING", "artifact": "test_report.md" },
+    "12": { "agent": "Security Validation", "status": "PENDING", "artifact": "security_validation_report.md" },
+    "13": { "agent": "Technical Writer", "status": "PENDING", "artifact": "docs/" },
+    "14": { "agent": "Support Engineer", "status": "PENDING", "artifact": "user_feedback_report.md" }
   },
-  "blockers": [],
-  "decisions_log": []
+  "history": []
 }

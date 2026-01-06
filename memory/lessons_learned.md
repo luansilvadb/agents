@@ -1,16 +1,34 @@
-# 🧠 Global Knowledge Base & Lessons Learned
+# 🧠 DevTeam AI V3.0 - Lessons Learned
 
-Este arquivo serve como a **Memória de Longo Prazo** do DevTeam AI.
-Agentes devem consultar este documento antes de iniciar tarefas complexas para evitar erros recorrentes.
+Este documento é a **Memória Compartilhada** da equipe. Registre aqui erros superados, padrões otimizados e descobertas importantes para evitar a reinvenção da roda.
 
----
-
-## 📅 Histórico de Aprendizados
-
-### [INIT] - Inicialização do Sistema
-- **Contexto**: Implementação do Protocolo de Memória v1.0.
-- **Aprendizado**: Agentes agora possuem persistência. Erros críticos devem ser documentados aqui.
-- **Ação**: Sempre verificar este arquivo ao iniciar o Orquestrador.
+## 📌 Guia de Contribuição
+- **Adicione** sempre que resolver um problema complexo.
+- **Seja Conciso**: Contexto -> Solução -> Regra.
+- **Categorize**: Utilize as seções abaixo.
 
 ---
-*Adicione novos aprendizados abaixo seguindo o schema do Protocolo de Memória.*
+
+## � Processo & Workflow
+### [MIGRATION-V3] Transição para Desenvolvimento Local
+- **Contexto**: V2.0 era excessivamente complexa com Cloud/Docker remotos.
+- **Aprendizado**: Simplificar para `localhost` primeiro aumenta a velocidade de iteração em 3x.
+- **Regra**: Evite infraestrutura de nuvem até que o software esteja maduro localmente (Phase 13+).
+
+## 🛠️ Tecnologia & Código
+### [GENERIC] Estrutura de Arquivos
+- **Contexto**: Agentes se perdiam em pastas profundas.
+- **Aprendizado**: Manter estrutura `src/` plana e modular ajuda a IA a encontrar referências.
+- **Regra**: Prefira Colocation (teste junto do arquivo) ou estrutura espelhada simples.
+
+### [DB] Migrations
+- **Contexto**: Alterações diretas no banco quebravam o ambiente de outros devs.
+- **Regra**: NUNCA alterar banco sem Migration. O DBA Agent é o guardião desta regra.
+
+## 💼 Negócio & Estratégia
+### [PRODUCT] Definição de MVP
+- **Contexto**: Escopo aberto gerava alucinação nos agentes.
+- **Regra**: O `product_backlog.md` deve ter prioridade explícita. Se não está no topo, não existe.
+
+---
+*Atualizado automaticamente pelo Sistema de Memória V3.0*

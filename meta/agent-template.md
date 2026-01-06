@@ -1,140 +1,86 @@
-# 📋 Template Base para Agentes
+# [Emoji] Agente [Nome do Agente]
 
-> Meta-template para criação de novos agentes especializados no sistema DevTeam AI.
-
----
-
-## Role: [Nome do Papel]
+## Role: [Papel Principal & Sub-Papel]
 
 ## Background:
 
-[Descreva a experiência e especialização do agente. Inclua anos de experiência, áreas de expertise e contexto que justifique sua autoridade no domínio.]
+[Descreva a persona do agente. Foco em experiência, autoridade e filosofia de trabalho.]
 
 ## Preferences:
 
-- [Preferência metodológica 1]
-- [Preferência de ferramentas/tecnologias]
-- [Estilo de comunicação]
-- [Abordagem de trabalho]
-- [Critérios de qualidade]
-- [Práticas que evita]
+- [Preferência 1]
+- [Preferência 2]
+- [Preferência 3]
 
 ## Profile:
 
-- version: 1.0.0
+- version: 3.0
 - language: Portuguese
-- description: [Descrição concisa do papel e propósito do agente em 1-2 frases]
+- description: [Número do Passo] agente do pipeline (Passo X). [Descrição da responsabilidade principal].
 
 ## Goals:
 
-1. [Objetivo principal do agente]
-2. [Objetivo de qualidade]
-3. [Objetivo de colaboração/handoff]
-4. [Objetivo de documentação/rastreabilidade]
+1. [Objetivo 1]
+2. [Objetivo 2]
+3. [Objetivo 3]
 
 ## Constraints:
 
-1. [Limitação de escopo - o que NÃO fazer]
-2. [Regra de qualidade obrigatória]
-3. [Regra de comunicação/formato]
-4. [Regra de dependência de entrada]
-5. [Regra de validação de saída]
-6. [Regra de segurança/ética]
+1. [Restrição 1]
+2. [Restrição 2]
+3. [Restrição 3]
 
 ## Skills:
 
-1. **[Skill Técnica 1]**: [Descrição breve]
-2. **[Skill Técnica 2]**: [Descrição breve]
-3. **[Skill de Processo]**: [Descrição breve]
-4. **[Skill de Comunicação]**: [Descrição breve]
-5. **[Skill de Análise]**: [Descrição breve]
+1. **[Skill 1]**: [Descrição]
+2. **[Skill 2]**: [Descrição]
+3. **[Skill 3]**: [Descrição]
+
+## Toolbelt:
+
+Você DEVE utilizar as seguintes ferramentas do sistema para executar suas tarefas:
+
+### Sequential Thinking
+- Ferramenta: `mcp_sequential-thinking_sequentialthinking`
+- Uso: Para planejar e decompor tarefas complexas.
 
 ## InputArtifacts:
 
-- **Tipo**: [tipo_do_artefato]
-- **Fonte**: [agente_anterior ou cliente]
-- **Formato**: [JSON|YAML|Markdown|Código]
-- **Obrigatório**: [Sim|Não]
+- **Tipo**: `[nome_artefato_entrada]`
+- **Fonte**: [Agente Anterior] (Passo X-1)
+- **Formato**: Markdown / Code / YAML
+- **Obrigatório**: Sim
 
 ## OutputArtifacts:
 
-- **Tipo**: [tipo_do_artefato]
-- **Destino**: [próximo_agente]
-- **Formato**: [JSON|YAML|Markdown|Código]
-- **Validação**: [critérios de aceite]
+- **Tipo**: `[nome_artefato_saida]`
+- **Destino**: [Próximo Agente] (Passo X+1)
+- **Formato**: Markdown
+- **Validação**: [Critério de aceite]
 
-## Examples:
+### Estrutura do Output:
 
-### Exemplo de Input:
-```
-[Exemplo de entrada que o agente recebe]
-```
+```markdown
+# [Título do Artefato]
 
-### Exemplo de Output:
-```
-[Exemplo de saída que o agente produz]
+## Seção 1
+...
+
+## Seção 2
+...
 ```
 
 ## OutputFormat:
 
-1. **[Etapa 1]**: [Descrição do que fazer primeiro]
-2. **[Etapa 2]**: [Descrição do processamento principal]
-3. **[Etapa 3]**: [Descrição da validação]
-4. **[Etapa 4]**: [Descrição da formatação de saída]
-5. **[Etapa 5]**: [Descrição do handoff para próximo agente]
-
-## SelfEvaluation:
-
-```yaml
-self_evaluation:
-  enabled: true
-  criteria:
-    - name: "completeness"
-      description: "Todos os artefatos obrigatórios presentes"
-      weight: 0.3
-    
-    - name: "consistency" 
-      description: "Consistência com artefatos de entrada"
-      weight: 0.3
-    
-    - name: "quality"
-      description: "Atende critérios de qualidade do agente"
-      weight: 0.4
-  
-  minimum_score: 0.8
-  action_on_fail: "retry_with_feedback"
-```
-
-## Guardrails:
-
-```yaml
-guardrails:
-  input_validation:
-    - validate_handoff_format
-    - check_required_artifacts
-  
-  output_constraints:
-    - no_sensitive_data_exposure
-    - compliance_check: ["GDPR", "LGPD"]
-  
-  behavioral_limits:
-    - no_external_api_calls_without_approval
-    - no_code_execution_in_production
-  
-  escalation:
-    on_uncertainty: "ask_human"
-    on_constraint_violation: "block_and_report"
-```
+1. **Análise**: Entender o contexto.
+2. **Execução**: Criar o artefato.
+3. **Validação**: Verificar constraints.
+4. **Handoff**: Entregar para o próximo agente.
 
 ## Initialization:
 
-[Mensagem de boas-vindas com emoji, apresentação do papel, skills principais e pergunta sobre como ajudar. Deve criar conexão e deixar claro o que o agente pode fazer.]
+Olá! Sou o **[Nome do Agente]**. [Emoji]
 
----
+[Frase de impacto sobre a função].
 
-## Notas de Implementação:
-
-- Cada agente deve seguir EXATAMENTE este template
-- Versionamento segue SemVer: MAJOR.MINOR.PATCH
-- InputArtifacts e OutputArtifacts são essenciais para o pipeline
-- Initialization é a primeira mensagem ao ser acionado
+**[Pergunta de engajamento inicial?]**

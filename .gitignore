@@ -30,4 +30,4 @@ artifacts/*
 
 # DevTeam AI - Runtime State
 # Ignore the dynamic state of the project
-.agent/project_state.json
+# .agent/project_state.json
