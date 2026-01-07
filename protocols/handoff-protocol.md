@@ -1,6 +1,8 @@
-# Protocolo de Handoff Escalável (V4.0)
+# Protocolo de Handoff Escalável (V5.0)
 
-> **Core Philosophy**: Handoffs são **Contratos de Serviço**. A escalabilidade vem do desacoplamento entre quem produz e quem consome, mediados por contratos rígidos de entrada e saída.
+> **Core Philosophy**: Handoffs são **Contratos de Serviço com Accountability**. A escalabilidade vem do desacoplamento entre quem produz e quem consome, mediados por contratos rígidos de entrada e saída, E pela **responsabilidade explícita** de cada agente sobre o que entrega.
+
+> ⚠️ **Dependência Crítica**: Este protocolo REQUER o `accountability-protocol.md` (V1.0+) para funcionar corretamente.
 
 ## 1. O Contrato de Handoff (The Contract)
 
@@ -10,9 +12,10 @@ Para escalar o pipeline, abandonamos a "cadeia simples" em favor de **Fases de V
 2.  **Transformação de Valor** (O que eu faço)
 3.  **Output Garantido** (O que eu entrego)
 4.  **Portão de Qualidade** (Critérios de Aceite/DoD)
+5.  **🆕 Handoff Declaration** (Prova de validação + clearance)
 
 ### Estrutura do Artefato de Handoff
-Todo handoff deve incluir meta-dados implícitos ou explícitos:
+Todo handoff DEVE incluir meta-dados explícitos:
 
 ```yaml
 handoff_manifest:
@@ -21,7 +24,15 @@ handoff_manifest:
   artifacts: ["lista/de/arquivos.md"]
   validation_status: "verified" # só entregar se verificado
   context_tags: ["feature-x", "fix", "critical"]
+  
+  # 🆕 OBRIGATÓRIO - Referência ao Accountability Protocol
+  declaration_ref: "[link ou inline da Handoff Declaration]"
+  clearance_status: true # Se false, handoff é BLOQUEADO
 ```
+
+### 🆕 Regra de Ouro do Handoff V5.0
+> **Sem Declaration válida com `clearance: true`, o handoff NÃO PODE ocorrer.**
+> O agente predecesssor é responsável por validar seu próprio output ANTES de passar.
 
 ## 2. Arquitetura de Fases (Scalable Workflow)
 
@@ -80,5 +91,54 @@ Para adicionar novos agentes (ex: um "DevOps Engineer" ou "AI Ethics Officer"):
 2.  Defina seus Inputs e Outputs no formato de **Contrato**.
 3.  Insira-o no fluxo sem precisar renumerar todo o pipeline, apenas ajustando as dependências de entrada/saída.
 
+## 5. 🆕 Integração com Accountability Protocol
+
+### 5.1 Fluxo de Handoff com Accountability
+
+```
+[Agente A finaliza tarefa]
+         ↓
+[Self-Validation: Executa checklist de saída]
+         ↓
+[Gera Handoff Declaration]
+         ↓
+    ┌────┴────┐
+    │clearance│
+    │= true?  │
+    └────┬────┘
+    SIM  │  NÃO
+    ↓    │    ↓
+[Passa]  │  [BLOQUEIA]
+    ↓    │    ↓
+[Agente B]  [Escala para Orquestrador]
+    ↓
+[Valida Declaration recebida]
+    ↓
+[Aceita ou Rejeita com feedback]
+```
+
+### 5.2 Responsabilidades no Handoff
+
+| Agente | Responsabilidade | Ação Obrigatória |
+|--------|-----------------|------------------|
+| **Emissor** | Provar que entregou corretamente | Gerar Declaration válida |
+| **Receptor** | Validar que recebeu o esperado | Verificar Declaration |
+| **Orquestrador** | Mediar bloqueios | Resolver escalações |
+
+### 5.3 Critérios de Clearance
+
+O campo `clearance_status` só pode ser `true` se:
+
+- [ ] Todos os itens da `self_validation` são `passed` ou `skipped` com justificativa
+- [ ] `open_items` não contém itens críticos sem owner
+- [ ] O output atende ao contrato definido na seção 1
+
+### 5.4 Referência Cruzada
+
+Para detalhes completos sobre:
+- Formato da Handoff Declaration → Ver `accountability-protocol.md`
+- Regras de escalação → Ver `accountability-protocol.md#escalação`
+- Auditoria de declarations → Ver `accountability-protocol.md#auditoria`
+
 ---
-*DevTeam AI - Scalable Modular Protocol V4.0*
+*DevTeam AI - Scalable Modular Protocol V5.0 with Accountability*
