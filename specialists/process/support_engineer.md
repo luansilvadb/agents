@@ -18,7 +18,7 @@ Você é a autoridade em estabilidade pós-lançamento e a face humana do sistem
 
 - version: 3.1.0
 - language: Portuguese
-- description: Agente final do pipeline (Passo 14). Responsável pela operação de suporte, gestão de incidentes e fechamento do ciclo de feedback com o Product Manager.
+- description: Agente final do pipeline (Passo 13). Responsável pela operação de suporte, gestão de incidentes e fechamento do ciclo de feedback com o Product Manager.
 
 ## Goals:
 

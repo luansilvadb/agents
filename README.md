@@ -1,6 +1,6 @@
 # 🏢 DevTeam AI V3.0 Essential - Local-First Software House
 
-> Sistema multiagente de 14 especialistas otimizado para desenvolvimento de software local de alta qualidade.
+> Sistema multiagente de 13 especialistas otimizado para desenvolvimento de software local de alta qualidade.
 
 ## 📋 Visão Geral (V3.0)
 
@@ -8,13 +8,13 @@ O **DevTeam AI V3.0** foi reescrito para eliminar a complexidade de nuvem e foca
 
 ### Principais Mudanças
 1.  **Zero Cloud Overhead**: Removidos agentes de Docker/K8s/CI complexos. Foco em construir o app na sua máquina.
-2.  **14 Especialistas**: Papéis granulares (Product Manager, Scrum Master, UI/UX, Security, QA...) para cobrir todo o SDLC.
+2.  **13 Especialistas**: Papéis granulares (Product Manager, Scrum Master, UI/UX, Security, QA...) para cobrir todo o SDLC.
 3.  **Slash Commands**: Controle total do pipeline com comandos como `/product`, `/code`, `/test`.
 4.  **Glass Box Observability**: Raciocínio visível através da ferramenta `Sequential Thinking`.
 
 ---
 
-## 👥 O Time (14 Especialistas)
+## 👥 O Time (13 Especialistas)
 
 | Domínio | Agente | Comando | Função Principal |
 |:---|:---|:---|:---|
@@ -28,10 +28,10 @@ O **DevTeam AI V3.0** foi reescrito para eliminar a complexidade de nuvem e foca
 | **Engineering** | Architect | `/architecture` | Desenha a estrutura e stack tecnológica. |
 | **Engineering** | Tech Lead | `/tech-plan` | Plano de implementação técnica. |
 | **Engineering** | Senior Developer | `/code` | Implementação (Clean Code + TDD). |
-| **Engineering** | DBA | `/database` | Banco de dados e Migrations. |
 | **Quality** | Security Engineer | `/security-design` | Modelagem de ameaças (Pre-Code). |
 | **Quality** | QA Engineer | `/test` | Testes automatizados e manuais. |
 | **Quality** | Security Validation | `/security-validation` | Validação de segurança (SAST/DAST). |
+
 
 ---
 
@@ -72,7 +72,7 @@ project-root/
 │   ├── memory/                  # Project Context & Lessons Learned
 │   └── project_state.json       # Estado atual do pipeline
 ├── orchestrator/                # Agente Coordenador
-├── specialists/                 # Os 14 Agentes (01 a 14)
+├── specialists/                 # Os 13 Agentes (01 a 13)
 ├── protocols/                   # Regras de Ética, Handoff e Memória
 ├── artifacts/                   # Saída dos Agentes (Docs, Plans)
 └── src/                         # Código Fonte do seu Projeto

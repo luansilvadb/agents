@@ -4,7 +4,7 @@
     "status": "READY",
     "iteration": 1,
     "version": "2.0.0",
-    "last_updated": "2026-01-05T21:37:46-03:00"
+    "last_updated": "2026-01-06T21:31:00-03:00"
   },
   "pipeline": {
     "current_stage": null,
@@ -109,33 +109,21 @@
       "dependencies": [
         "tech_planning"
       ],
-      "description": "Core code implementation."
-    },
-    "database_management": {
-      "index": 10,
-      "title": "Database Management",
-      "agent": "DBA",
-      "status": "PENDING",
-      "artifact": "database/",
-      "dependencies": [
-        "tech_planning"
-      ],
-      "description": "Database schema design and management."
+      "description": "Core code implementation (includes data layer)."
     },
     "quality_assurance": {
-      "index": 11,
+      "index": 10,
       "title": "Quality Assurance",
       "agent": "QA Engineer",
       "status": "PENDING",
       "artifact": "test_report.md",
       "dependencies": [
-        "implementation",
-        "database_management"
+        "implementation"
       ],
       "description": "Comprehensive testing and QA reporting."
     },
     "security_validation": {
-      "index": 12,
+      "index": 11,
       "title": "Security Validation",
       "agent": "Security Validation",
       "status": "PENDING",
@@ -146,7 +134,7 @@
       "description": "Final security verification and penetration testing."
     },
     "documentation": {
-      "index": 13,
+      "index": 12,
       "title": "Documentation",
       "agent": "Technical Writer",
       "status": "PENDING",
@@ -157,7 +145,7 @@
       "description": "Technical and user documentation."
     },
     "support_feedback": {
-      "index": 14,
+      "index": 13,
       "title": "Support & Feedback",
       "agent": "Support Engineer",
       "status": "PENDING",

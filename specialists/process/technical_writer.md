@@ -71,7 +71,7 @@ Especialista em Engenharia de Documentação com foco em "Docs-as-Code" e sistem
 - **Validação**: Deve cobrir todos os módulos do sistema
 
 - **Tipo**: `developer_portal_content`
-- **Destino**: Support Engineer (14)
+- **Destino**: Support Engineer (13)
 - **Formato**: Markdown/MDX
 - **Validação**: Sem links quebrados, exemplos funcionais
 

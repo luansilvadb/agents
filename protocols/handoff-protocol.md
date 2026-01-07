@@ -36,7 +36,7 @@ handoff_manifest:
 
 ## 2. Arquitetura de Fases (Scalable Workflow)
 
-Em vez de passos lineares rígidos (1..14), agrupamos o fluxo em **Fases Lógicas**. Isso permite paralelismo (ex: UI e Arquitetura ocorrendo simultaneamente) e facilita adicionar novos agentes especialistas sem quebrar a numeração.
+Em vez de passos lineares rígidos (1..13), agrupamos o fluxo em **Fases Lógicas**. Isso permite paralelismo (ex: UI e Arquitetura ocorrendo simultaneamente) e facilita adicionar novos agentes especialistas sem quebrar a numeração.
 
 ### Fase 1: Discovery & Strategy (O "Porquê" e "O Quê")
 | Agente | Role | Output Principal | Validação (DoD) |
@@ -60,7 +60,7 @@ _Nesta fase, múltiplos especialistas podem trabalhar em paralelo após a Especi
 | :--- | :--- | :--- | :--- |
 | **Tech Lead** | Estratégia Téc. | `implementation_plan.md` | Decomposição atômica de tasks |
 | **Senior Dev** | Implementador | `src/*` | Clean Code, SOLID, Build Pass |
-| **DBA** | Dados | `database/*` | Normalização, Migrations Idempotentes |
+
 
 ### Fase 4: Quality & Delivery (A Garantia)
 | Agente | Role | Output Principal | Validação (DoD) |
