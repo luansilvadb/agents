@@ -1,90 +1,85 @@
-# 🏢 DevTeam AI V3.0 Essential - Local-First Software House
+# 🏢 DevTeam AI V5.1 - Scalable Software House
 
-> Sistema multiagente de 13 especialistas otimizado para desenvolvimento de software local de alta qualidade.
+[![Version](https://img.shields.io/badge/version-5.1.0--stable-blue.svg)](https://github.com/seu-usuario/devteam-ai/releases)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
+[![Framework](https://img.shields.io/badge/framework-Accountability--First-red.svg)](#)
+[![Orchestration](https://img.shields.io/badge/orchestration-Dynamic--Scalable-orange.svg)](#)
 
-## 📋 Visão Geral (V3.0)
-
-O **DevTeam AI V3.0** foi reescrito para eliminar a complexidade de nuvem e focar no que importa: **Qualidade de Código (`Software Craftsmanship`)** e **Velocidade de Execução Local**.
-
-### Principais Mudanças
-1.  **Zero Cloud Overhead**: Removidos agentes de Docker/K8s/CI complexos. Foco em construir o app na sua máquina.
-2.  **13 Especialistas**: Papéis granulares (Product Manager, Scrum Master, UI/UX, Security, QA...) para cobrir todo o SDLC.
-3.  **Slash Commands**: Controle total do pipeline com comandos como `/product`, `/code`, `/test`.
-4.  **Glass Box Observability**: Raciocínio visível através da ferramenta `Sequential Thinking`.
+> **DevTeam AI** é um ecossistema multiagente de elite, composto por 13 especialistas e um motor de orquestração dinâmica, desenhado para transformar ideias em software de alta performance com rigor técnico enterprise.
 
 ---
 
-## 👥 O Time (13 Especialistas)
+## 📋 Visão Geral
 
-| Domínio | Agente | Comando | Função Principal |
-|:---|:---|:---|:---|
-| **Product** | Product Manager | `/product` | Define a Visão e Backlog do Produto. |
-| **Product** | Business Analyst | `/analysis` | Detalha requisitos em User Stories. |
-| **Product** | System Analyst | `/systems` | Especifica contratos de API e Dados. |
-| **Process** | Scrum Master | `/scrum` | Planeja a Sprint e remove bloqueios. |
-| **Process** | Tech Writer | `/docs` | Documentação técnica e de usuário. |
-| **Process** | Support Engineer | `/support` | Simulação de uso e Feedback loop. |
-| **Design** | UI/UX Designer | `/uiux` | Cria Design System e Mockups. |
-| **Engineering** | Architect | `/architecture` | Desenha a estrutura e stack tecnológica. |
-| **Engineering** | Tech Lead | `/tech-plan` | Plano de implementação técnica. |
-| **Engineering** | Senior Developer | `/code` | Implementação (Clean Code + TDD). |
-| **Quality** | Security Engineer | `/security-design` | Modelagem de ameaças (Pre-Code). |
-| **Quality** | QA Engineer | `/test` | Testes automatizados e manuais. |
-| **Quality** | Security Validation | `/security-validation` | Validação de segurança (SAST/DAST). |
+A **Versão 5.1 (Scalable Edition)** marca a transição de um pipeline linear para uma **Arquitetura de Camadas Lógicas**. O sistema agora é capaz de adaptar seu fluxo de trabalho dependendo da complexidade da tarefa—seja um desenvolvimento do zero, um hotfix crítico ou uma refatoração de dívida técnica.
 
+### 🚀 Diferenciais da V5.1
+
+- 🧠 **Raciocínio Sequencial Nativo**: Todos os agentes utilizam a ferramenta `Sequential Thinking` para evitar alucinações e garantir decisões lógicas auditáveis.
+- 🔒 **Accountability Protocol**: Nenhum artefato cruza o pipeline sem uma `Handoff Declaration` válida, garantindo que o "dono" da tarefa validou tecnicamente o que entregou.
+- 🏗️ **Arquitetura Modular**: Adicione novos especialistas ou protocolos sem quebrar o workflow existente.
+- 👁️ **Observabilidade de "Caixa de Vidro"**: Trilhas de decisão claras através do padrão IDA (Information, Decision, Action).
+- 📂 **Memória Fragmentada**: Recuperação de contexto sob demanda para manter o pipeline leve e eficiente.
 
 ---
 
-## 🚀 Como Usar
+## 🛠️ O Time de Especialistas
 
-### 1. Iniciar Projeto
-Para começar um novo ciclo, simplesmente digite:
+Organizados em camadas de valor para garantir paralelismo e profundidade técnica:
 
-```bash
-/start
-```
-
-Isso carregará o **Orquestrador**, que guiará você desde a definição do produto.
-
-### 2. Navegação
-Você não precisa decorar os comandos. O Orquestrador lhe dirá qual o próximo passo.
-Mas se quiser pular direto para uma etapa:
-
-- Quer mudar o backlog? Use `/product`.
-- Quer escrever código? Use `/code`.
-- Quer rodar testes? Use `/test`.
-
-### 3. Acompanhamento
-Para ver o status do projeto e os artefatos gerados:
-
-```bash
-/status
-```
+| Camada | Especialistas | Missão Principal |
+| :--- | :--- | :--- |
+| **Strategy** | Product Manager, Scrum Master | Visão, ROI, Priorização e Fluxo. |
+| **Definition** | Business Analyst, System Analyst | Requisitos INVEST, BDD e Contratos de API. |
+| **Design** | UI/UX Designer, Architect, Security Eng | Experiência, Estrutura e Security by Design. |
+| **Execution** | Tech Lead, Senior Developer | Task Breakdown e Implementação Clean Code. |
+| **Assurance** | QA Engineer, Security Validation | Integridade Funcional e Blindagem SAST/DAST. |
+| **Delivery** | Tech Writer, Support Engineer | Docs-as-Code e Ciclo de Feedback do Usuário. |
 
 ---
 
-## 📁 Estrutura do Projeto
+## 🎮 Operação do Sistema
 
-```
-project-root/
-├── .agent/
-│   ├── workflows/               # Atalhos dos Slash Commands
-│   ├── memory/                  # Project Context & Lessons Learned
-│   └── project_state.json       # Estado atual do pipeline
-├── orchestrator/                # Agente Coordenador
-├── specialists/                 # Os 13 Agentes (01 a 13)
-├── protocols/                   # Regras de Ética, Handoff e Memória
-├── artifacts/                   # Saída dos Agentes (Docs, Plans)
-└── src/                         # Código Fonte do seu Projeto
+O **Orquestrador Dinâmico** gerencia os especialistas através de Slash Commands inteligentes:
+
+### Comandos de Controle
+- `/start`: Analisa o projeto e sugere o melhor modo de operação.
+- `/status`: Dashboard em tempo real do estado das camadas e integridade do build.
+- `/dispatch [agent]`: Acionar manualmente um especialista para uma tarefa pontual.
+- `/workflow [mode]`: Alterna entre modos `full`, `hotfix` ou `refactor`.
+
+### Fluxos de Trabalho (Modes)
+1. **Standard Pipeline**: O ciclo completo da estratégia ao deploy.
+2. **Hotfix / Quick Task**: Atalho para correções rápidas focadas em Código e QA.
+3. **Architecture Review**: Foco em ADRs e decisões de infraestrutura.
+
+---
+
+## 📂 Estrutura do Workspace
+
+```text
+D:/agents/
+├── 📁 .agent/              # Configurações e Workflows do sistema
+├── 📁 orchestrator/        # Motor de Orquestração Inteligente
+├── 📁 specialists/         # Personas e Capacidades do Time (V5.1)
+├── 📁 protocols/           # Manuais: Accountability, Ethics, Handoff, Memory
+├── 📁 memory/              # SSoT: Project Context & Lessons Learned
+├── 📁 artifacts/           # Artefatos Técnicos validados (Docs, Plans)
+├── 📁 src/                 # Código-fonte da aplicação alvo
+└── 📄 README.md            # Este guia
 ```
 
 ---
 
-## 🏷️ Versionamento
+## 🏁 Primeiros Passos
 
-- **Versão**: 3.0.0 Essential
-- **Foco**: Local Development & Software Quality
-- **Data**: 2026-01-05
+1. **Alinhamento**: Revise o arquivo `memory/project_context.md` para definir a sua Tech Stack.
+2. **Início**: Dispare `/start` para que o Orquestrador analise o ambiente.
+3. **Evolução**: Acompanhe o raciocínio dos agentes em tempo real e valide as `Handoff Declarations`.
 
 ---
-*DevTeam AI - Transformando sua máquina em uma Software House.*
+
+<p align="center">
+  <strong>DevTeam AI V5.1 - Engineered Intelligence for Modern Software</strong><br>
+  Feito por engenheiros, para engenheiros. ❤️
+</p>

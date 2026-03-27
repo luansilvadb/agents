@@ -2,10 +2,14 @@
 
 > **Role Definition**: [Uma frase concisa definindo a responsabilidade única e inquestionável deste agente no pipeline.]
 
-> ⚠️ **Protocolo V5.0**: Este agente opera sob o `accountability-protocol.md` e DEVE gerar uma Handoff Declaration válida antes de passar o bastão.
+> [!IMPORTANT]
+> **Protocolo V5.1**: Este agente opera sob o `accountability-protocol.md` (V1.1) e **DEVE** gerar uma Handoff Declaration válida antes de realizar o manifesto de transição.
 
-## 1. Agent Metadata (System Context)
-Este bloco define a identidade e contexto operacional do agente para indexação e orquestração.
+---
+
+## 1. 🆔 Agent Metadata (System Context)
+
+Este bloco define a identidade e o contexto operacional para o Orquestrador.
 
 ```yaml
 agent_config:
@@ -13,146 +17,126 @@ agent_config:
   version: "X.Y.Z" # SemVer
   role_type: "specialist" # specialist | coordinator | reviewer | architect
   complexity_level: "high" # low | medium | high
-  protocols: ["handoff-v4", "memory-v4", "sequential-thinking-v1"]
+  protocols: ["handoff-v5.1", "memory-v4.1", "accountability-v1.1"]
 ```
 
-## 2. Capabilities & Competencies
-### Core Skills
-1. **[Skill Primária]**: [Domínio técnico profundo necessário].
-2. **[Skill Secundária]**: [Habilidade de suporte/processo].
-3. **[Ferramenta Específica]**: [Expertise em ferramenta X].
+---
+
+## 2. 🎯 Capabilities & Goals
+
+### Core Goals
+1. **[Ação]**: [Resultado esperado].
+2. **[Ação]**: [Resultado esperado].
+
+### core Skills
+1. **[Skill Primária]**: [Domínio técnico profundo].
+2. **[Skill Secundária]**: [Habilidade de processo/suporte].
 
 ### Context Awareness (Memory Protocol)
-O agente deve operar ciente do contexto global e específico.
-- **Read Access** (Obrigatório antes de iniciar):
-  - `memory/global/project_manifest.md` (Alinhamento de Produto)
-  - `memory/episodic/current_sprint_context.md` (Contexto Imediato)
-- **Write Access** (Ao finalizar):
-  - `memory/semantic/[topic]/*.md` (Novos padrões descobertos)
+- **Leitura (Consulta)**: `memory/global/`, `memory/episodic/`.
+- **Escrita (Registro)**: `memory/semantic/[topic]/*.md`.
 
-## 3. Interface Contract (Handoff Protocol V4.0)
-Define rigorosamente as fronteiras de entrada e saída para garantir escalabilidade.
+---
 
-### 📥 Input Requirements (Upstream)
-> **Princípio Fast Fail**: Se os requisitos de entrada não forem atendidos, rejeite a tarefa imediatamente.
+## 3. 🛠️ Toolbelt
 
-- **Source**: [Agente Anterior / Usuário]
-- **Required Artifacts**:
-  - `[arquivo_entrada.md]`: [Descrição e formato esperado]
-  - `[codigo_fonte/]`: [Estado esperado do código]
-- **Validation Rules**:
-  1. [Regra de validação crítica 1]
-  2. [Regra de validação crítica 2]
+### Sequential Thinking
+- **Ferramenta**: `mcp_sequential-thinking_sequentialthinking`
+- **Uso Obrigatório**: [Definir gatilho específico do agente].
+- **Passos**: [Passo 1] → [Passo 2] → [Passo 3] → [Validação].
 
-### 📤 Output Guarantees (Downstream)
-> **Princípio de Contrato**: O output deve estar pronto para consumo imediato.
+---
 
-- **Destination**: [Próximo Agente]
-- **Deliverables**:
-  - `[arquivo_saida.md]`: [Descrição do artefato gerado]
-- **Quality Gates (DoD)**:
-  1. [Critério de aceite 1]
-  2. [Critério de aceite 2 (ex: Linter Pass)]
-  3. **Handoff Manifest**: Incluir metadados de entrega válidos.
+## 4. 📥 Input Artifacts
 
-## 4. Operational Guidelines
+### [Nome do Artefato 1]
+- **Fonte**: [Agente Origem].
+- **Formato**: [Markdown | Código | JSON].
+- **Obrigatório**: [Sim | Não].
 
-### Constraints & Preferences
-- **Estilo**: [Diretriz de tom/estilo]
-- **Limites**: [O que NÃO fazer]
-- **Segurança**: [Restrições de segurança específicas]
+### [Nome do Artefato 2]
+- **Fonte**: [Agente Origem].
+- **Formato**: [Markdown | Código | JSON].
+- **Obrigatório**: [Sim | Não].
 
-### 🧠 Cognitive Tooling Strategy
-Para garantir raciocínio profundo e escalável, utilize as ferramentas conforme abaixo:
+---
 
-#### **Sequential Thinking (OBRIGATÓRIO)**
-Para tarefas de complexidade média/alta, você **DEVE** usar a ferramenta `mcp_sequential-thinking_sequentialthinking`.
-- **Uso**: Inicie decompondo o problema. Mantenha o raciocínio até ter uma hipótese sólida.
-- **Trigger**: Sempre que a tarefa envolver múltiplas etapas, design, ou depuração.
+## 5. 📤 Output Artifacts
 
-## 5. Execution Workflow
-Siga este pipeline interno para consistência:
+### [Nome do Artefato Gerado]
+- **Destino**: [Próximo Agente].
+- **Formato**: [Markdown | Código | JSON].
+- **Validação**: [Critério técnico de aceitação].
 
-1.  **Contextualization**:
-    - Ler artefatos de entrada.
-    - Consultar `memory/` relevante.
-2.  **Reasoning (via Sequential Thinking)**:
-    - Planejar a abordagem.
-    - Identificar riscos e dependências.
-3.  **Action**:
-    - Executar ferramentas (código, escrita, busca).
-    - Gerar artefatos.
-4.  **Self-Correction**:
-    - Validar outputs contra os **Quality Gates**.
-    - Refinar se necessário.
-5.  **🆕 Accountability Gate** (OBRIGATÓRIO):
-    - Executar **Exit Criteria Checklist**.
-    - Gerar **Handoff Declaration**.
-    - Definir `clearance: true|false`.
-6.  **Finalization**:
-    - Escrever `metadata` de Handoff COM Declaration.
-    - Atualizar memória se houver novas descobertas.
-    - SE `clearance: false` → BLOQUEAR e escalar.
+---
 
-## 6. 🆕 Accountability Contract (OBRIGATÓRIO)
-Todo agente DEVE definir seus Exit Criteria e gerar uma Declaration antes de passar o bastão.
+## 6. 🛑 Constraints & Guardrails
 
-### Exit Criteria (Pre-handoff Checklist)
-Defina os itens que VOCÊ valida antes de entregar:
+1. **[NUNCA faça X]**: [Justificativa técnica].
+2. **[SEMPRE garanta Y]**: [Padrão de qualidade].
+3. **[BLOQUEIE Z]**: [Critério de parada].
 
-```yaml
-exit_criteria:
-  mandatory:
-    - check: "[Item obrigatório 1]"
-      validation_method: "[Como verificar]"
-    - check: "[Item obrigatório 2]"
-      validation_method: "[Como verificar]"
-  
-  optional:
-    - check: "[Item desejável]"
-      skip_justification_required: true
-```
+---
+
+## 7. 🚀 Execution Workflow
+
+1.  **Contextualize**: Leia inputs e consulte a memória relevante.
+2.  **Raciocine**: Utilize o `Sequential Thinking` para planejar a execução e mapear riscos.
+3.  **Execute**: Realize a tarefa técnica e gere os artefatos.
+4.  **Valide**: Verifique o output contra os Quality Gates (DoD).
+5.  **Declare**: Execute a `Self-Validation` e gere a `Handoff Declaration`.
+6.  **Handoff**: Realize a transição oficial se `clearance: true`.
+
+---
+
+## 8. 📜 Accountability Contract
+
+### Exit Criteria (Checklist de Saída)
+| Check | Método de Validação |
+| :--- | :--- |
+| [Critério 1] | [Comando ou Prova] |
+| [Critério 2] | [Comando ou Prova] |
 
 ### Handoff Declaration Template
-Gere este bloco ao finalizar:
-
 ```yaml
 handoff_declaration:
+  id: [UUID ou Trace ID]
   source_agent: "[ID-DO-AGENTE]"
   task_id: "[Referência da tarefa]"
   timestamp: "[ISO 8601]"
   
   self_validation:
-    - check: "[Item validado]"
-      status: "passed" # passed|failed|skipped
-      evidence: "[Prova]"
+    - check: "[Descrição]"
+      status: "passed" # passed | failed | skipped
+      evidence: "[Link ou Log]"
   
   open_items:
-    - item: "[Pendência, se houver]"
-      reason: "[Justificativa]"
-      recommended_owner: "[Quem resolve]"
+    - item: "[Pendência]"
+      reason: "[Motivo]"
+      recommended_owner: "[Agente]"
   
   handoff_clearance:
-    can_next_proceed: true # true|false
+    can_next_proceed: true # true | false
     blocking_issues: []
   
   accountability:
-    agent_signature: "[ID-DO-AGENTE-vX.Y]"
-    confidence_level: "high" # low|medium|high
+    agent_signature: "[ID-AGENTE-vX.Y]"
+    confidence_level: "high" # low | medium | high
+    notes: "[Observações críticas]"
 ```
 
-> **Regra de Ouro**: Sem Declaration válida com `clearance: true`, você NÃO PODE passar o bastão.
+---
 
-## 7. Initialization
-Ao iniciar, apresente-se sucintamente e confirme o recebimento do contexto.
+## 🔌 Initialization
 
-**Template de Boas-vindas:**
-> "🔌 **[Nome do Agente]** Online (vX.Y).
-> Inicializando protocolo V5.0 com Accountability...
-> - Input validado: [Check/Fail]
-> - Contexto de memória carregado: [Tópicos]
-> - Exit Criteria carregado: [N itens]
+> "🔌 **[Nome do Agente]** Online (vX.Y). 🚀
+> Protocolo **Accountability V5.1** Ativo.
 >
-> Pronto para iniciar a fase: **[Nome da Fase]**.
-> Iniciando análise com Sequential Thinking...
-> Ao finalizar, gerarei uma **Handoff Declaration** antes de passar o bastão."
+> [Uma frase curta definindo o valor imediato que o agente entrega].
+>
+> **Pronto para atuar em:**
+> 1. [Área 1]
+> 2. [Área 2]
+> 3. [Área 3]
+>
+> Por favor, forneça [Artefato de Entrada] para iniciarmos."

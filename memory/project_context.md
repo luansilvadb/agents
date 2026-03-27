@@ -1,95 +1,105 @@
-# 🏗️ Project Context & Manifest (V3.1)
+# 🏗️ Manifesto e Contexto do Projeto (V5.1)
 
-> **Source of Truth**: Dynamic registry of project state, constraints, and architecture.
-> **Last Updated**: 2026-01-05
-> **Maintainers**: Scrum Master, Architect, Tech Lead
+> **Fonte da Verdade**: Registro dinâmico do estado do projeto, restrições e arquitetura.
+> **Última Atualização**: 2026-03-27
+> **Responsáveis**: Orquestrador, Arquiteto, Tech Lead e Scrum Master.
 
 ---
 
-## 1. System Metadata (YAML)
-This block is the primary index for agent orientation.
+## 1. 🆔 Metadados do Sistema (Metadata)
+
+Este bloco serve como índice primário para a orientação de novos agentes e para a orquestração do pipeline.
 
 ```yaml
 project_metadata:
-  name: "[Project Name]"
-  id: "proj-001-core" # Update with immutable ID
-  version: "0.0.1-alpha"
-  repository: "[Repo URL]"
+  name: "DevTeam AI Framework"
+  id: "proj-001-core"
+  version: "1.0.0-stable"
+  repository: "D:/agents"
   documentation_root: "docs"
   
 project_config:
   language: "pt-BR"
   timezone: "America/Sao_Paulo (UTC-3)"
-  agent_framework_version: "3.0.0"
+  agent_framework_version: "5.1.0" # Sincronizado com Handoff V5.1 e Accountability V1.1
 ```
 
-## 2. Dynamic State (Pulse)
-Current operational context. Update this section at Sprint boundaries.
+---
+
+## 2. 💓 Pulso Dinâmico (Dynamic State)
+
+Contexto operacional atual. Esta seção deve ser atualizada em cada transição de fase ou Sprint.
 
 ```yaml
 context_status:
-  phase: "Planning" # Planning | Development | Stabilization | Release
-  current_sprint: 0
-  sprint_goal: "[Objetivo principal da iteração atual]"
-  system_health: "Green" # Green | Yellow | Red
+  phase: "Documentation & Validation" # Planning | Development | Stabilization | Release
+  current_sprint: 1
+  sprint_goal: "Refinar e padronizar toda a documentação de protocolos e agentes para o padrão V5.1."
+  system_health: "Green"
   active_blockers: 0
 ```
 
-### 🎯 Key Deliverables (Sprint 0)
-- [ ] [Deliverable 1]
-- [ ] [Deliverable 2]
+### 🎯 Entregas Chave (Sprint Atual)
+- [x] Atualização dos Protocolos de Base (V5.1).
+- [x] Refatoração de todos os Agentes Especialistas.
+- [x] Padronização do Meta-Template de Agentes.
+- [ ] Revisão do README e Guia de Onboarding.
 
 ---
 
-## 3. Architectural Blueprint
+## 3. 📐 Blueprint Arquitetural
+
 ### 🛠️ Tech Stack (Core)
-*See `memory/tech/` for detailed ADRs.*
+*Consulte `memory/semantic/adrs/` para decisões técnicas detalhadas.*
 
 ```yaml
 tech_stack:
-  frontend: "[ex: React, Vite, Tailwind]"
-  backend: "[ex: Node.js, Fastify]"
-  database: "[ex: PostgreSQL, Prisma]"
-  testing: "[ex: Vitest, Playwright]"
-  infra: "[ex: Docker, AWS]"
+  orchestration: "DevTeam AI V5.1 (Scalable Edition)"
+  documentation: "Docs-as-Code (CommonMark + Mermaid)"
+  standards: "Diátaxis, INVEST, SOLID, STRIDE"
+  tools: "Sequential Thinking, GitHub Search, Filesystem MCP"
 ```
 
-### ⚖️ System Invariants (Non-negotiable)
-All agents MUST validate actions against these Hard Constraints.
+### ⚖️ Invariantes do Sistema (Não Negociáveis)
+Todos os agentes **DEVEM** validar suas ações contra estas restrições rígidas.
 
-#### 🔐 Security & Ethics
-1.  **Zero Secrets**: NUNCA commitar chaves ou segredos. Use `.env` e `1Password`.
-2.  **Input Validation**: Strict validation (Zod/Joi) em todas as fronteiras de I/O.
-3.  **Data Privacy**: Respeitar GDPR/LGPD. Não logar PII.
+#### 🔐 Segurança e Ética
+1.  **SEGREDOS ZERO**: NUNCA commite chaves de API, senhas ou tokens. Use variáveis de ambiente mascaradas.
+2.  **VALIDAÇÃO DE INPUT**: GARANTA validação estrita (Zod/Joi) em todas as fronteiras de entrada e saída.
+3.  **PRIVACIDADE**: RESPEITE LGPD/GDPR. Proibido logar ou persistir PII (Dados Pessoais).
 
-#### ⚡ Performance & Scale
-1.  **SLA**: API Response < 200ms (P95).
-2.  **Asset Optimization**: Imagens WebP/AVIF. Lazy load by default.
-3.  **Code Complexity**: Cyclomatic complexity < 10.
+#### ⚡ Performance e Escala
+1.  **RESPOSTA RÁPIDA**: MANTENHA o tempo de feedback do pipeline otimizado.
+2.  **CONEXÃO DE CONTEXTO**: USE o Sequential Thinking para evitar loops e alucinações.
+3.  **COMPLEXIDADE**: LIMITE a complexidade ciclomática e mantenha funções atômicas.
 
-#### 💻 Quality Standards
-1.  **Language**: TypeScript (Strict Mode).
-2.  **Style**: ESLint Standard + Prettier.
-3.  **Testing**: Min 80% coverage em Business Logic.
-4.  **Commits**: Conventional Commits (feat:, fix:, chore:).
-
----
-
-## 4. Domain Context
-### 📖 Ubiquitous Language (Glossary)
-*Expand in `memory/domain/glossary.md`*
-
-- **Usuário**: [Definição: Ator que interage com o sistema]
-- **Cliente**: [Definição: Entidade que paga pelo serviço]
-- **[Termo]**: [Definição]
+#### 💻 Padrões de Qualidade
+1.  **LINGUAGEM**: TypeScript (Strict Mode) para código; Português Brasil para documentação.
+2.  **ESTILO**: SIGA rigorosamente o guia de estilo e o linter definido.
+3.  **TESTES**: EXIJA cobertura mínima de 80% em lógica de negócio.
+4.  **ACCOUNTABILITY**: EMITA uma Handoff Declaration válida para cada artefato entregue.
 
 ---
 
-## 5. Workspace Registry (Navigation)
-Use this map to locate detailed information.
+## 4. 📖 Contexto de Domínio (Glossário)
 
-- **`memory/global/`**: Manifestos e regras globais.
-- **`memory/episodic/`**: Contexto volátil (Sprints, Dailies).
-- **`memory/semantic/`**: Conhecimento acumulado (Padrões, Tech, Domain).
-- **`docs/`**: Documentação formal do usuário/sistema.
-- **`src/`**: Código fonte da aplicação.
+- **Agente**: Entidade autônoma especialista em uma fase do pipeline.
+- **Handoff**: Transição contratual de responsabilidade e artefatos.
+- **Clearance**: Autorização explícita baseada em validação técnica para prosseguir.
+- **DoD (Definition of Done)**: Critérios mandatórios para considerar uma tarefa concluída.
+
+---
+
+## 5. 🗺️ Registro do Workspace (Navegação)
+
+Use este mapa para localizar informações detalhadas e manter a organização:
+
+- **`.agent/memory/global/`**: Manifestos, regras de ouro e restrições de stack.
+- **`.agent/memory/episodic/`**: Contexto volátil da sprint e decisões ativas.
+- **`.agent/memory/semantic/`**: Conhecimento cristalizado (Patterns, ADRs, Troubleshooting).
+- **`artifacts/`**: Saídas técnicas validadas prontas para consumo.
+- **`specialists/`**: Definições de persona e capacidades do time.
+- **`protocols/`**: Manuais de operação do sistema.
+
+---
+*DevTeam AI - "Conscious Alignment is Scalable Performance"*
